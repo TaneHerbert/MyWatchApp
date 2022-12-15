@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_blue/flutter_blue.dart';
+import 'package:mywatchapp/connect_or_disconnect.dart';
 
 class ConnectionPage extends StatefulWidget {
   const ConnectionPage({super.key});
@@ -106,6 +107,15 @@ class _ConnectionPageState extends State<ConnectionPage> {
   void onTap(ScanResult r) {
     // Print name of device
     debugPrint(r.device.name);
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (BuildContext context) {
+          return DeviceScreen(
+            device: r.device,
+          );
+        },
+      ),
+    );
   }
 
   /* Device item widget */
