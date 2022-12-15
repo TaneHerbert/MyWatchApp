@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_blue/flutter_blue.dart';
+
 import 'package:mywatchapp/discover_page.dart';
 import 'package:mywatchapp/face_gallery_page.dart';
 import 'package:mywatchapp/home_page.dart';
@@ -43,7 +43,6 @@ class _RootPageState extends State<RootPage> {
     'Face Gallery',
     'Discover',
   ];
-  final String _title = 'test';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
