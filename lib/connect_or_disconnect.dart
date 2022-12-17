@@ -218,6 +218,28 @@ class _DeviceScreenState extends State<DeviceScreen> {
                 },
                 child: const Text("OFF"),
               ),
+              TextButton(
+                onPressed: () async {
+                  List<BluetoothService> services =
+                      await widget.device.discoverServices();
+
+                  var test = services[1].characteristics;
+                  for (int i = 0; i < test.length; i++) {
+                    List<int> value = await test[i].read();
+                    print(String.fromCharCodes(value));
+                  }
+
+                  // services.forEach((service) async {
+                  //   var test = service.characteristics;
+                  //   for (BluetoothCharacteristic c in test) {
+                  //     List<int> value = await c.read();
+                  //     debugPrint('Test');
+                  //     print(String.fromCharCodes(value));
+                  //   }
+                  // });
+                },
+                child: const Text('Pressed'),
+              ),
             ],
           ),
         ));
