@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_blue/flutter_blue.dart';
@@ -95,6 +96,8 @@ class _DeviceScreenState extends State<DeviceScreen> {
       statetext = 'Connecting';
     });
 
+    debugPrint('Test');
+
     /*
       Set timeout to 10 seconds (10000ms) and turn off autoconnect. For reference,
       if autoconnect is set to true the connection may be delayed.
@@ -130,8 +133,6 @@ class _DeviceScreenState extends State<DeviceScreen> {
       // ignore: empty_catches
     } catch (e) {}
   }
-
-  final _writeController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -178,43 +179,49 @@ class _DeviceScreenState extends State<DeviceScreen> {
               ),
               TextButton(
                 onPressed: () async {
-                  // List<BluetoothService> bleServices =
-                  //     await widget.device.discoverServices();
-                  // for (BluetoothService service in bleServices) {
-                  //   for (BluetoothCharacteristic c in service.characteristics) {
-                  //     c.write(utf8.encode('H'));
-                  //     debugPrint('Test');
-                  //   }
-                  // }
-                  List<BluetoothService> services =
+                  List<BluetoothService> bleServices =
                       await widget.device.discoverServices();
-                  services.forEach((service) async {
-                    var test = service.characteristics;
-                    for (BluetoothCharacteristic c in test) {
-                      await c.write(utf8.encode('L'));
+                  for (BluetoothService service in bleServices) {
+                    for (BluetoothCharacteristic c in service.characteristics) {
+                      c.write(utf8.encode('L'));
+                      debugPrint('Test');
                     }
-                  });
+                  }
+                  // List<BluetoothService> services =
+                  //     await widget.device.discoverServices();
+                  // services.forEach((service) async {
+                  //   var test = service.characteristics;
+                  //   for (BluetoothCharacteristic c in test) {
+                  //     await c.write(utf8.encode('L'));
+                  //   }
+                  // });
                 },
                 child: const Text("ON"),
               ),
               TextButton(
                 onPressed: () async {
-                  // List<BluetoothService> bleServices =
-                  //     await widget.device.discoverServices();
-                  // for (BluetoothService service in bleServices) {
-                  //   for (BluetoothCharacteristic c in service.characteristics) {
-                  //     c.write(utf8.encode('H'));
-                  //     debugPrint('Test');
-                  //   }
-                  // }
-                  List<BluetoothService> services =
+                  List<BluetoothService> bleServices =
                       await widget.device.discoverServices();
-                  services.forEach((service) async {
-                    var test = service.characteristics;
-                    for (BluetoothCharacteristic c in test) {
-                      await c.write(utf8.encode('T'));
+                  for (BluetoothService service in bleServices) {
+                    for (BluetoothCharacteristic c in service.characteristics) {
+                      int chunkSize = 20;
+
+                      String message =
+                          'This is a large amout of data that will be sent using data fragmentation lol hi there 123';
+
+                      int messageLength = message.length;
+                      int numFragments =
+                          (messageLength / chunkSize.toDouble()).ceil();
+
+                      for (int i = 0; i < numFragments; i++) {
+                        int start = i * chunkSize;
+                        int end = min(start + chunkSize, messageLength);
+
+                        String fragment = message.substring(start, end);
+                        c.write(utf8.encode(fragment));
+                      }
                     }
-                  });
+                  }
                 },
                 child: const Text("OFF"),
               ),
@@ -228,15 +235,6 @@ class _DeviceScreenState extends State<DeviceScreen> {
                     List<int> value = await test[i].read();
                     print(String.fromCharCodes(value));
                   }
-
-                  // services.forEach((service) async {
-                  //   var test = service.characteristics;
-                  //   for (BluetoothCharacteristic c in test) {
-                  //     List<int> value = await c.read();
-                  //     debugPrint('Test');
-                  //     print(String.fromCharCodes(value));
-                  //   }
-                  // });
                 },
                 child: const Text('Pressed'),
               ),

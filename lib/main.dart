@@ -43,6 +43,7 @@ class _RootPageState extends State<RootPage> {
     'Face Gallery',
     'Discover',
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
