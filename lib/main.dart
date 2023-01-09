@@ -47,6 +47,7 @@ class _RootPageState extends State<RootPage> {
     super.initState();
 
     // Run this function when the app is loaded up
+    pages = const [HomePage(), FaceGalleryPage(), DiscoverPage()];
     runFunctionOnStartup();
   }
 
