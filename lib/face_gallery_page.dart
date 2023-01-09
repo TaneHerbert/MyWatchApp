@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:mywatchapp/faceGalleryInformation.dart';
 import 'faceGalleryInformationClass.dart';
+import 'package:flutter_blue/flutter_blue.dart';
 
 class FaceGalleryPage extends StatelessWidget {
   const FaceGalleryPage({super.key});
@@ -50,22 +51,33 @@ class FaceGalleryPage extends StatelessWidget {
               return Builder(
                 builder: (BuildContext context) {
                   return InkWell(
-                    onTap: () {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (BuildContext context) {
-                            return FaceGalleryInformation(
-                              test: faceGalleryList[i - 1],
-                            );
-                          },
-                        ),
-                      );
+                    onTap: () async {
+                      FlutterBlue flutterBlue = FlutterBlue.instance;
+                      List<BluetoothDevice> bondedDevices =
+                          await flutterBlue.connectedDevices;
+
+                      for (BluetoothDevice device in bondedDevices) {
+                        if (device.name == "Tane") {
+                          print('Yay');
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (BuildContext context) {
+                                return FaceGalleryInformation(
+                                  test: faceGalleryList[i - 1],
+                                );
+                              },
+                            ),
+                          );
+                        } else {
+                          print('Nooooo');
+                        }
+                      }
                     },
                     child: Container(
                       width: MediaQuery.of(context).size.width,
                       margin: const EdgeInsets.symmetric(horizontal: 5.0),
                       decoration: const BoxDecoration(color: Colors.amber),
-                      child: Image.asset('images/mainphoto.png'),
+                      child: Image.asset(faceGalleryList[i - 1].photo),
                     ),
                   );
                 },
