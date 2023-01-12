@@ -1,7 +1,5 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
-import 'package:mywatchapp/displayAndBrigtness.dart';
+import 'package:mywatchapp/display_and_brigtness.dart';
 import 'package:mywatchapp/generalPage.dart';
 import 'package:mywatchapp/notifications.dart';
 import 'package:mywatchapp/setAlarm.dart';

@@ -4,7 +4,6 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_blue/flutter_blue.dart';
-import 'main.dart';
 
 class DeviceScreen extends StatefulWidget {
   const DeviceScreen({super.key, required this.device});
@@ -234,6 +233,7 @@ class _DeviceScreenState extends State<DeviceScreen> {
                   var test = services[1].characteristics;
                   for (int i = 0; i < test.length; i++) {
                     List<int> value = await test[i].read();
+                    // ignore: avoid_print
                     print(String.fromCharCodes(value));
                   }
                 },

@@ -58,7 +58,9 @@ class FaceGalleryPage extends StatelessWidget {
 
                       for (BluetoothDevice device in bondedDevices) {
                         if (device.name == "Tane") {
+                          // ignore: avoid_print
                           print('Yay');
+                          // ignore: use_build_context_synchronously
                           Navigator.of(context).push(
                             MaterialPageRoute(
                               builder: (BuildContext context) {
@@ -69,6 +71,7 @@ class FaceGalleryPage extends StatelessWidget {
                             ),
                           );
                         } else {
+                          // ignore: avoid_print
                           print('Nooooo');
                         }
                       }
