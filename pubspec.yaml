@@ -38,6 +38,8 @@ dependencies:
   flutter_blue: ^0.8.0
   carousel_slider: ^4.2.1
   font_awesome_flutter: ^10.3.0
+  date_time_picker: ^2.1.0
+  intl: ^0.17.0
 
 dev_dependencies:
   flutter_test:

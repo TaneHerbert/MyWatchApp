@@ -61,7 +61,7 @@ class _RootPageState extends State<RootPage> {
     }
 
     for (BluetoothDevice device in bondedDevices) {
-      if (device.name == "Tane") {
+      if (device.name == "HMSoft") {
         setState(() {
           pages = const [SettingsPage(), FaceGalleryPage(), DiscoverPage()];
           titles[0] = 'My Watch';

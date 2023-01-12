@@ -134,32 +134,76 @@ class _DisplayAndBrightnessState extends State<DisplayAndBrightness> {
               ),
             ),
             const SizedBox(height: 30),
-            Container(
-              width: double.infinity,
-              decoration: BoxDecoration(
-                color: Colors.orange,
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.only(left: 20, right: 20),
-                child: Column(
-                  children: [
-                    SizedBox(
-                      height: 40,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: const [
-                          Text("Wake Duraion"),
-                          Text(">"),
-                        ],
+            InkWell(
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (BuildContext context) {
+                      return const WakeDuration();
+                    },
+                  ),
+                );
+              },
+              child: Container(
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: Colors.orange,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 20, right: 20),
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: 40,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: const [
+                            Text("Wake Duraion"),
+                            Text(">"),
+                          ],
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class WakeDuration extends StatefulWidget {
+  const WakeDuration({super.key});
+
+  @override
+  State<WakeDuration> createState() => _WakeDurationState();
+}
+
+class _WakeDurationState extends State<WakeDuration> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Wake Duration'),
+        automaticallyImplyLeading: false,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+          icon: const Icon(Icons.arrow_back_ios),
+        ),
+        actions: [
+          IconButton(
+            onPressed: () {
+              debugPrint('Actions');
+            },
+            icon: const Icon(Icons.info_outline),
+          ),
+        ],
       ),
     );
   }

@@ -17,6 +17,7 @@ class SettingsPage extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.only(left: 25, top: 10, right: 25),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Text(
               "My Display",
@@ -170,7 +171,7 @@ class SettingsPage extends StatelessWidget {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: const [
-                                Text("Set Time"),
+                                Text("Set Time & Alarms"),
                                 Text(">"),
                               ],
                             ),
