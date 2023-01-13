@@ -1,7 +1,20 @@
 import 'package:flutter/material.dart';
 
-class GeneralPage extends StatelessWidget {
+class GeneralPage extends StatefulWidget {
   const GeneralPage({super.key});
+
+  @override
+  State<GeneralPage> createState() => _GeneralPageState();
+}
+
+class _GeneralPageState extends State<GeneralPage> {
+  String name = "Tane";
+
+  void changeName(String newName) {
+    setState(() {
+      name = newName;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +56,10 @@ class GeneralPage extends StatelessWidget {
                         Navigator.of(context).push(
                           MaterialPageRoute(
                             builder: (BuildContext context) {
-                              return const Name();
+                              return Name(
+                                nameChange: changeName,
+                                name: name,
+                              );
                             },
                           ),
                         );
@@ -52,9 +68,14 @@ class GeneralPage extends StatelessWidget {
                         height: 40,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: const [
-                            Text("Name"),
-                            Text(">"),
+                          children: [
+                            const Text("Name"),
+                            const Spacer(flex: 1),
+                            Text(name),
+                            const Padding(
+                              padding: EdgeInsets.only(left: 5),
+                              child: Text(">"),
+                            ),
                           ],
                         ),
                       ),
@@ -164,8 +185,9 @@ class GeneralPage extends StatelessWidget {
 }
 
 class Name extends StatefulWidget {
-  const Name({super.key});
-
+  const Name({super.key, required this.nameChange, required this.name});
+  final Function nameChange;
+  final String name;
   @override
   State<Name> createState() => _NameState();
 }
@@ -174,25 +196,55 @@ class _NameState extends State<Name> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Name'),
-        automaticallyImplyLeading: false,
-        leading: IconButton(
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
-          icon: const Icon(Icons.arrow_back_ios),
-        ),
-        actions: [
-          IconButton(
+        appBar: AppBar(
+          title: const Text('Name'),
+          automaticallyImplyLeading: false,
+          leading: IconButton(
             onPressed: () {
-              debugPrint('Actions');
+              Navigator.of(context).pop();
             },
-            icon: const Icon(Icons.info_outline),
+            icon: const Icon(Icons.arrow_back_ios),
           ),
-        ],
-      ),
-    );
+          actions: [
+            IconButton(
+              onPressed: () {
+                debugPrint('Actions');
+              },
+              icon: const Icon(Icons.info_outline),
+            ),
+          ],
+        ),
+        body: Padding(
+          padding: const EdgeInsets.all(10),
+          child: TextField(
+            onChanged: (String value) {
+              widget.nameChange(value);
+            },
+            style: const TextStyle(color: Colors.white),
+            textCapitalization: TextCapitalization.sentences,
+            decoration: InputDecoration(
+              enabledBorder: const OutlineInputBorder(
+                borderSide: BorderSide(
+                  width: 3,
+                  color: Colors.white,
+                ),
+              ),
+              focusedBorder: const OutlineInputBorder(
+                borderSide: BorderSide(
+                  width: 3,
+                  color: Colors.blue,
+                ),
+              ),
+              counterStyle: const TextStyle(
+                color: Colors.white,
+              ),
+              hintText: widget.name,
+              hintStyle: const TextStyle(
+                color: Colors.white,
+              ),
+            ),
+          ),
+        ));
   }
 }
 
