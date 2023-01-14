@@ -289,6 +289,16 @@ class WatchOrientation extends StatefulWidget {
 }
 
 class _WatchOrientationState extends State<WatchOrientation> {
+  List<String> texts1 = [
+    "Left Wrist",
+    "Right Wrist",
+  ];
+  List<String> texts2 = [
+    "Digital Crown on Left Side",
+    "Digital Crown on Right Side",
+  ];
+  int _selectedIndex1 = 0;
+  int _selectedIndex2 = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -310,6 +320,94 @@ class _WatchOrientationState extends State<WatchOrientation> {
           ),
         ],
       ),
+      body: Column(
+        children: [
+          Padding(
+              padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: SizedBox(
+                  child: Wrap(
+                    children: List.generate(
+                        2,
+                        (index) => InkWell(
+                              onTap: () {
+                                setState(() {
+                                  _selectedIndex1 = index;
+                                });
+                              },
+                              child: Container(
+                                height: 40,
+                                decoration: BoxDecoration(
+                                  color: _selectedIndex1 == index
+                                      ? Colors.green
+                                      : Colors.blue,
+                                ),
+                                child: Padding(
+                                  padding:
+                                      const EdgeInsets.only(left: 5, right: 5),
+                                  child: Align(
+                                      alignment: Alignment.centerLeft,
+                                      child: Row(
+                                        children: <Widget>[
+                                          Text(texts1[index]),
+                                          const Spacer(flex: 1),
+                                          _selectedIndex1 == index
+                                              ? const Icon(Icons.check,
+                                                  color: Colors.white)
+                                              : const SizedBox(),
+                                        ],
+                                      )),
+                                ),
+                              ),
+                            )),
+                  ),
+                ),
+              )),
+          Padding(
+              padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: SizedBox(
+                  child: Wrap(
+                    children: List.generate(
+                        2,
+                        (index) => InkWell(
+                              onTap: () {
+                                setState(() {
+                                  _selectedIndex2 = index;
+                                });
+                              },
+                              child: Container(
+                                height: 40,
+                                decoration: BoxDecoration(
+                                  color: _selectedIndex2 == index
+                                      ? Colors.green
+                                      : Colors.blue,
+                                ),
+                                child: Padding(
+                                  padding:
+                                      const EdgeInsets.only(left: 5, right: 5),
+                                  child: Align(
+                                      alignment: Alignment.centerLeft,
+                                      child: Row(
+                                        children: <Widget>[
+                                          Text(texts2[index]),
+                                          const Spacer(flex: 1),
+                                          _selectedIndex2 == index
+                                              ? const Icon(Icons.check,
+                                                  color: Colors.white)
+                                              : const SizedBox(),
+                                        ],
+                                      )),
+                                ),
+                              ),
+                            )),
+                  ),
+                ),
+              )),
+        ],
+      ),
     );
   }
 }
@@ -322,11 +420,18 @@ class ReturnToClock extends StatefulWidget {
 }
 
 class _ReturnToClockState extends State<ReturnToClock> {
+  List<String> texts = [
+    "Always",
+    "After 2 minutes",
+    "After 1 hour",
+    "After Crown Press",
+  ];
+  int _selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Return To Clock'),
+        title: const Text('Watch Orientation'),
         automaticallyImplyLeading: false,
         leading: IconButton(
           onPressed: () {
@@ -343,6 +448,47 @@ class _ReturnToClockState extends State<ReturnToClock> {
           ),
         ],
       ),
+      body: Padding(
+          padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(10),
+            child: SizedBox(
+              child: Wrap(
+                children: List.generate(
+                    4,
+                    (index) => InkWell(
+                          onTap: () {
+                            setState(() {
+                              _selectedIndex = index;
+                            });
+                          },
+                          child: Container(
+                            height: 40,
+                            decoration: BoxDecoration(
+                              color: _selectedIndex == index
+                                  ? Colors.green
+                                  : Colors.blue,
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 5, right: 5),
+                              child: Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: Row(
+                                    children: <Widget>[
+                                      Text(texts[index]),
+                                      const Spacer(flex: 1),
+                                      _selectedIndex == index
+                                          ? const Icon(Icons.check,
+                                              color: Colors.white)
+                                          : const SizedBox(),
+                                    ],
+                                  )),
+                            ),
+                          ),
+                        )),
+              ),
+            ),
+          )),
     );
   }
 }

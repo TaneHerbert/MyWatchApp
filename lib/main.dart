@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_blue/flutter_blue.dart';
 
 import 'package:mywatchapp/discover_page.dart';
@@ -7,7 +8,11 @@ import 'package:mywatchapp/home_page.dart';
 import 'package:mywatchapp/settingsPage.dart';
 
 void main() {
-  runApp(const MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
+      .then((_) {
+    runApp(const MyApp());
+  });
 }
 
 class MyApp extends StatelessWidget {
@@ -61,7 +66,7 @@ class _RootPageState extends State<RootPage> {
     }
 
     for (BluetoothDevice device in bondedDevices) {
-      if (device.name == "HMSoft") {
+      if (device.name == "Tane") {
         setState(() {
           pages = const [SettingsPage(), FaceGalleryPage(), DiscoverPage()];
           titles[0] = 'My Watch';
