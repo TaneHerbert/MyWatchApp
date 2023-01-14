@@ -20,6 +20,7 @@ class _GeneralPageState extends State<GeneralPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.black,
         title: const Text('GeneralPage'),
         automaticallyImplyLeading: false,
         leading: IconButton(
@@ -28,14 +29,6 @@ class _GeneralPageState extends State<GeneralPage> {
           },
           icon: const Icon(Icons.arrow_back_ios),
         ),
-        actions: [
-          IconButton(
-            onPressed: () {
-              debugPrint('Actions');
-            },
-            icon: const Icon(Icons.info_outline),
-          ),
-        ],
       ),
       body: Padding(
         padding: const EdgeInsets.only(left: 25, top: 10, right: 25),
@@ -44,7 +37,7 @@ class _GeneralPageState extends State<GeneralPage> {
             Container(
               width: double.infinity,
               decoration: BoxDecoration(
-                color: Colors.orange,
+                color: const Color.fromARGB(200, 34, 34, 34),
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Padding(
@@ -69,12 +62,21 @@ class _GeneralPageState extends State<GeneralPage> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            const Text("Name"),
+                            const Text(
+                              "Name",
+                              style: TextStyle(color: Colors.white),
+                            ),
                             const Spacer(flex: 1),
-                            Text(name),
+                            Text(
+                              name,
+                              style: const TextStyle(color: Colors.white),
+                            ),
                             const Padding(
                               padding: EdgeInsets.only(left: 5),
-                              child: Text(">"),
+                              child: Text(
+                                ">",
+                                style: TextStyle(color: Colors.white),
+                              ),
                             ),
                           ],
                         ),
@@ -95,8 +97,14 @@ class _GeneralPageState extends State<GeneralPage> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: const [
-                            Text("Software Update"),
-                            Text(">"),
+                            Text(
+                              "Software Update",
+                              style: TextStyle(color: Colors.white),
+                            ),
+                            Text(
+                              ">",
+                              style: TextStyle(color: Colors.white),
+                            ),
                           ],
                         ),
                       ),
@@ -119,7 +127,7 @@ class _GeneralPageState extends State<GeneralPage> {
               child: Container(
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  color: Colors.orange,
+                  color: const Color.fromARGB(200, 34, 34, 34),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Padding(
@@ -131,8 +139,14 @@ class _GeneralPageState extends State<GeneralPage> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: const [
-                            Text("Watch Orientation"),
-                            Text(">"),
+                            Text(
+                              "Watch Orientation",
+                              style: TextStyle(color: Colors.white),
+                            ),
+                            Text(
+                              ">",
+                              style: TextStyle(color: Colors.white),
+                            ),
                           ],
                         ),
                       ),
@@ -155,7 +169,7 @@ class _GeneralPageState extends State<GeneralPage> {
               child: Container(
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  color: Colors.orange,
+                  color: const Color.fromARGB(200, 34, 34, 34),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Padding(
@@ -167,8 +181,14 @@ class _GeneralPageState extends State<GeneralPage> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: const [
-                            Text("Return To Clock"),
-                            Text(">"),
+                            Text(
+                              "Return To Clock",
+                              style: TextStyle(color: Colors.white),
+                            ),
+                            Text(
+                              ">",
+                              style: TextStyle(color: Colors.white),
+                            ),
                           ],
                         ),
                       ),
@@ -197,6 +217,7 @@ class _NameState extends State<Name> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          backgroundColor: Colors.black,
           title: const Text('Name'),
           automaticallyImplyLeading: false,
           leading: IconButton(
@@ -205,14 +226,6 @@ class _NameState extends State<Name> {
             },
             icon: const Icon(Icons.arrow_back_ios),
           ),
-          actions: [
-            IconButton(
-              onPressed: () {
-                debugPrint('Actions');
-              },
-              icon: const Icon(Icons.info_outline),
-            ),
-          ],
         ),
         body: Padding(
           padding: const EdgeInsets.all(10),
@@ -225,13 +238,13 @@ class _NameState extends State<Name> {
             decoration: InputDecoration(
               enabledBorder: const OutlineInputBorder(
                 borderSide: BorderSide(
-                  width: 3,
+                  width: 1,
                   color: Colors.white,
                 ),
               ),
               focusedBorder: const OutlineInputBorder(
                 borderSide: BorderSide(
-                  width: 3,
+                  width: 1,
                   color: Colors.blue,
                 ),
               ),
@@ -260,6 +273,7 @@ class _SoftwareUpdateState extends State<SoftwareUpdate> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.black,
         title: const Text('Software Update'),
         automaticallyImplyLeading: false,
         leading: IconButton(
@@ -268,14 +282,6 @@ class _SoftwareUpdateState extends State<SoftwareUpdate> {
           },
           icon: const Icon(Icons.arrow_back_ios),
         ),
-        actions: [
-          IconButton(
-            onPressed: () {
-              debugPrint('Actions');
-            },
-            icon: const Icon(Icons.info_outline),
-          ),
-        ],
       ),
     );
   }
@@ -303,6 +309,7 @@ class _WatchOrientationState extends State<WatchOrientation> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.black,
         title: const Text('Watch Orientation'),
         automaticallyImplyLeading: false,
         leading: IconButton(
@@ -311,14 +318,6 @@ class _WatchOrientationState extends State<WatchOrientation> {
           },
           icon: const Icon(Icons.arrow_back_ios),
         ),
-        actions: [
-          IconButton(
-            onPressed: () {
-              debugPrint('Actions');
-            },
-            icon: const Icon(Icons.info_outline),
-          ),
-        ],
       ),
       body: Column(
         children: [
@@ -338,23 +337,28 @@ class _WatchOrientationState extends State<WatchOrientation> {
                               },
                               child: Container(
                                 height: 40,
-                                decoration: BoxDecoration(
-                                  color: _selectedIndex1 == index
-                                      ? Colors.green
-                                      : Colors.blue,
+                                decoration: const BoxDecoration(
+                                  // color: _selectedIndex1 == index
+                                  //     ? Colors.green
+                                  //     : Colors.blue,
+                                  color: Color.fromARGB(200, 34, 34, 34),
                                 ),
                                 child: Padding(
-                                  padding:
-                                      const EdgeInsets.only(left: 5, right: 5),
+                                  padding: const EdgeInsets.only(
+                                      left: 20, right: 20),
                                   child: Align(
                                       alignment: Alignment.centerLeft,
                                       child: Row(
                                         children: <Widget>[
-                                          Text(texts1[index]),
+                                          Text(
+                                            texts1[index],
+                                            style: const TextStyle(
+                                                color: Colors.white),
+                                          ),
                                           const Spacer(flex: 1),
                                           _selectedIndex1 == index
                                               ? const Icon(Icons.check,
-                                                  color: Colors.white)
+                                                  color: Colors.orange)
                                               : const SizedBox(),
                                         ],
                                       )),
@@ -380,23 +384,28 @@ class _WatchOrientationState extends State<WatchOrientation> {
                               },
                               child: Container(
                                 height: 40,
-                                decoration: BoxDecoration(
-                                  color: _selectedIndex2 == index
-                                      ? Colors.green
-                                      : Colors.blue,
+                                decoration: const BoxDecoration(
+                                  // color: _selectedIndex2 == index
+                                  //     ? Colors.green
+                                  //     : Colors.blue,
+                                  color: Color.fromARGB(200, 34, 34, 34),
                                 ),
                                 child: Padding(
-                                  padding:
-                                      const EdgeInsets.only(left: 5, right: 5),
+                                  padding: const EdgeInsets.only(
+                                      left: 20, right: 20),
                                   child: Align(
                                       alignment: Alignment.centerLeft,
                                       child: Row(
                                         children: <Widget>[
-                                          Text(texts2[index]),
+                                          Text(
+                                            texts2[index],
+                                            style: const TextStyle(
+                                                color: Colors.white),
+                                          ),
                                           const Spacer(flex: 1),
                                           _selectedIndex2 == index
                                               ? const Icon(Icons.check,
-                                                  color: Colors.white)
+                                                  color: Colors.orange)
                                               : const SizedBox(),
                                         ],
                                       )),
@@ -431,6 +440,7 @@ class _ReturnToClockState extends State<ReturnToClock> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.black,
         title: const Text('Watch Orientation'),
         automaticallyImplyLeading: false,
         leading: IconButton(
@@ -439,14 +449,6 @@ class _ReturnToClockState extends State<ReturnToClock> {
           },
           icon: const Icon(Icons.arrow_back_ios),
         ),
-        actions: [
-          IconButton(
-            onPressed: () {
-              debugPrint('Actions');
-            },
-            icon: const Icon(Icons.info_outline),
-          ),
-        ],
       ),
       body: Padding(
           padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
@@ -464,22 +466,26 @@ class _ReturnToClockState extends State<ReturnToClock> {
                           },
                           child: Container(
                             height: 40,
-                            decoration: BoxDecoration(
-                              color: _selectedIndex == index
-                                  ? Colors.green
-                                  : Colors.blue,
+                            decoration: const BoxDecoration(
+                              // color: _selectedIndex == index
+                              //     ? Colors.green
+                              //     : Colors.blue,
+                              color: Color.fromARGB(200, 34, 34, 34),
                             ),
                             child: Padding(
-                              padding: const EdgeInsets.only(left: 5, right: 5),
+                              padding:
+                                  const EdgeInsets.only(left: 20, right: 20),
                               child: Align(
                                   alignment: Alignment.centerLeft,
                                   child: Row(
                                     children: <Widget>[
-                                      Text(texts[index]),
+                                      Text(texts[index],
+                                          style: const TextStyle(
+                                              color: Colors.white)),
                                       const Spacer(flex: 1),
                                       _selectedIndex == index
                                           ? const Icon(Icons.check,
-                                              color: Colors.white)
+                                              color: Colors.orange)
                                           : const SizedBox(),
                                     ],
                                   )),

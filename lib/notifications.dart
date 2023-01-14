@@ -15,6 +15,7 @@ class _NotificationsState extends State<Notifications> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.black,
         title: const Text('Notifications'),
         automaticallyImplyLeading: false,
         leading: IconButton(
@@ -23,14 +24,6 @@ class _NotificationsState extends State<Notifications> {
           },
           icon: const Icon(Icons.arrow_back_ios),
         ),
-        actions: [
-          IconButton(
-            onPressed: () {
-              debugPrint('Actions');
-            },
-            icon: const Icon(Icons.info_outline),
-          ),
-        ],
       ),
       body: Padding(
         padding: const EdgeInsets.only(left: 25, top: 10, right: 25),
@@ -39,7 +32,7 @@ class _NotificationsState extends State<Notifications> {
             Container(
               width: double.infinity,
               decoration: BoxDecoration(
-                color: Colors.orange,
+                color: const Color.fromARGB(200, 34, 34, 34),
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Padding(
@@ -51,16 +44,20 @@ class _NotificationsState extends State<Notifications> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          const Icon(FontAwesomeIcons.instagram),
+                          const Icon(
+                            FontAwesomeIcons.instagram,
+                            color: Colors.white,
+                          ),
                           const Padding(
                             padding: EdgeInsets.only(left: 10),
-                            child: Text("Instagram"),
+                            child: Text("Instagram",
+                                style: TextStyle(color: Colors.white)),
                           ),
                           const Spacer(flex: 1),
                           Switch(
                             // This bool value toggles the switch.
                             value: light,
-                            activeColor: Colors.red,
+                            activeColor: Colors.green,
                             onChanged: (bool value) {
                               // This is called when the user toggles the switch.
                               setState(() {
@@ -78,17 +75,18 @@ class _NotificationsState extends State<Notifications> {
                         children: [
                           const Icon(
                             FontAwesomeIcons.snapchat,
-                            color: Colors.black,
+                            color: Colors.white,
                           ),
                           const Padding(
                             padding: EdgeInsets.only(left: 10),
-                            child: Text("Snapchat"),
+                            child: Text("Snapchat",
+                                style: TextStyle(color: Colors.white)),
                           ),
                           const Spacer(flex: 1),
                           Switch(
                             // This bool value toggles the switch.
                             value: light,
-                            activeColor: Colors.red,
+                            activeColor: Colors.green,
                             onChanged: (bool value) {
                               // This is called when the user toggles the switch.
                               setState(() {
@@ -104,16 +102,20 @@ class _NotificationsState extends State<Notifications> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          const Icon(FontAwesomeIcons.twitter),
+                          const Icon(
+                            FontAwesomeIcons.twitter,
+                            color: Colors.white,
+                          ),
                           const Padding(
                             padding: EdgeInsets.only(left: 10),
-                            child: Text("Twitter"),
+                            child: Text("Twitter",
+                                style: TextStyle(color: Colors.white)),
                           ),
                           const Spacer(flex: 1),
                           Switch(
                             // This bool value toggles the switch.
                             value: light,
-                            activeColor: Colors.red,
+                            activeColor: Colors.green,
                             onChanged: (bool value) {
                               // This is called when the user toggles the switch.
                               setState(() {
@@ -129,16 +131,20 @@ class _NotificationsState extends State<Notifications> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          const Icon(FontAwesomeIcons.youtube),
+                          const Icon(
+                            FontAwesomeIcons.youtube,
+                            color: Colors.white,
+                          ),
                           const Padding(
                             padding: EdgeInsets.only(left: 10),
-                            child: Text("Youtube"),
+                            child: Text("Youtube",
+                                style: TextStyle(color: Colors.white)),
                           ),
                           const Spacer(flex: 1),
                           Switch(
                             // This bool value toggles the switch.
                             value: light,
-                            activeColor: Colors.red,
+                            activeColor: Colors.green,
                             onChanged: (bool value) {
                               // This is called when the user toggles the switch.
                               setState(() {
@@ -157,16 +163,18 @@ class _NotificationsState extends State<Notifications> {
                           const Icon(
                             Icons.mail,
                             size: 28,
+                            color: Colors.white,
                           ),
                           const Padding(
                             padding: EdgeInsets.only(left: 10),
-                            child: Text("Mail"),
+                            child: Text("Mail",
+                                style: TextStyle(color: Colors.white)),
                           ),
                           const Spacer(flex: 1),
                           Switch(
                             // This bool value toggles the switch.
                             value: light,
-                            activeColor: Colors.red,
+                            activeColor: Colors.green,
                             onChanged: (bool value) {
                               // This is called when the user toggles the switch.
                               setState(() {

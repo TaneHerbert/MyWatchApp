@@ -7,6 +7,7 @@ class SetAlarm extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.black,
         title: const Text('Set Alarm'),
         automaticallyImplyLeading: false,
         leading: IconButton(
@@ -15,14 +16,6 @@ class SetAlarm extends StatelessWidget {
           },
           icon: const Icon(Icons.arrow_back_ios),
         ),
-        actions: [
-          IconButton(
-            onPressed: () {
-              debugPrint('Actions');
-            },
-            icon: const Icon(Icons.info_outline),
-          ),
-        ],
       ),
     );
   }

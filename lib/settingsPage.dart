@@ -46,7 +46,7 @@ class SettingsPage extends StatelessWidget {
                 Container(
                   width: double.infinity,
                   decoration: BoxDecoration(
-                    color: Colors.orange,
+                    color: const Color.fromARGB(200, 34, 34, 34),
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Padding(
@@ -68,8 +68,14 @@ class SettingsPage extends StatelessWidget {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: const [
-                                Text("General"),
-                                Text(">"),
+                                Text(
+                                  "General",
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                                Text(
+                                  ">",
+                                  style: TextStyle(color: Colors.white),
+                                ),
                               ],
                             ),
                           ),
@@ -89,8 +95,14 @@ class SettingsPage extends StatelessWidget {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: const [
-                                Text("Display & Brightness"),
-                                Text(">"),
+                                Text(
+                                  "Display & Brightness",
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                                Text(
+                                  ">",
+                                  style: TextStyle(color: Colors.white),
+                                ),
                               ],
                             ),
                           ),
@@ -110,8 +122,14 @@ class SettingsPage extends StatelessWidget {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: const [
-                                Text("Sound & Volume"),
-                                Text(">"),
+                                Text(
+                                  "Sound & Volume",
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                                Text(
+                                  ">",
+                                  style: TextStyle(color: Colors.white),
+                                ),
                               ],
                             ),
                           ),
@@ -126,7 +144,7 @@ class SettingsPage extends StatelessWidget {
                 Container(
                   width: double.infinity,
                   decoration: BoxDecoration(
-                    color: Colors.orange,
+                    color: const Color.fromARGB(200, 34, 34, 34),
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Padding(
@@ -148,8 +166,14 @@ class SettingsPage extends StatelessWidget {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: const [
-                                Text("Notifications"),
-                                Text(">"),
+                                Text(
+                                  "Notifications",
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                                Text(
+                                  ">",
+                                  style: TextStyle(color: Colors.white),
+                                ),
                               ],
                             ),
                           ),
@@ -169,8 +193,14 @@ class SettingsPage extends StatelessWidget {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: const [
-                                Text("Set Time & Alarms"),
-                                Text(">"),
+                                Text(
+                                  "Set Time & Alarms",
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                                Text(
+                                  ">",
+                                  style: TextStyle(color: Colors.white),
+                                ),
                               ],
                             ),
                           ),
@@ -190,8 +220,14 @@ class SettingsPage extends StatelessWidget {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: const [
-                                Text("Set Alarm"),
-                                Text(">"),
+                                Text(
+                                  "Set Alarm",
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                                Text(
+                                  ">",
+                                  style: TextStyle(color: Colors.white),
+                                ),
                               ],
                             ),
                           ),

@@ -15,6 +15,7 @@ class _SoundAndVolumeState extends State<SoundAndVolume> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.black,
         title: const Text('Sound and Volume'),
         automaticallyImplyLeading: false,
         leading: IconButton(
@@ -23,14 +24,6 @@ class _SoundAndVolumeState extends State<SoundAndVolume> {
           },
           icon: const Icon(Icons.arrow_back_ios),
         ),
-        actions: [
-          IconButton(
-            onPressed: () {
-              debugPrint('Actions');
-            },
-            icon: const Icon(Icons.info_outline),
-          ),
-        ],
       ),
       body: Padding(
         padding: const EdgeInsets.only(left: 25, top: 10, right: 25),
@@ -50,7 +43,7 @@ class _SoundAndVolumeState extends State<SoundAndVolume> {
             Container(
               width: double.infinity,
               decoration: BoxDecoration(
-                color: Colors.orange,
+                color: const Color.fromARGB(200, 34, 34, 34),
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Padding(
@@ -64,7 +57,11 @@ class _SoundAndVolumeState extends State<SoundAndVolume> {
                         children: [
                           const Flexible(
                             flex: 1,
-                            child: Icon(Icons.volume_down, size: 25),
+                            child: Icon(
+                              Icons.volume_down,
+                              size: 25,
+                              color: Colors.white,
+                            ),
                           ),
                           Flexible(
                             flex: 15,
@@ -82,7 +79,11 @@ class _SoundAndVolumeState extends State<SoundAndVolume> {
                           ),
                           const Flexible(
                             flex: 2,
-                            child: Icon(Icons.volume_up, size: 25),
+                            child: Icon(
+                              Icons.volume_up,
+                              size: 25,
+                              color: Colors.white,
+                            ),
                           ),
                         ],
                       ),
@@ -92,11 +93,14 @@ class _SoundAndVolumeState extends State<SoundAndVolume> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          const Text("Silent Mode"),
+                          const Text(
+                            "Silent Mode",
+                            style: TextStyle(color: Colors.white),
+                          ),
                           Switch(
                             // This bool value toggles the switch.
                             value: light,
-                            activeColor: Colors.red,
+                            activeColor: Colors.green,
                             onChanged: (bool value) {
                               // This is called when the user toggles the switch.
                               setState(() {

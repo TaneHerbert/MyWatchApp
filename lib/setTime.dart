@@ -23,6 +23,7 @@ class _SetTimeState extends State<SetTime> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.black,
         title: const Text('Set Time & Alarms'),
         automaticallyImplyLeading: false,
         leading: IconButton(
@@ -31,14 +32,6 @@ class _SetTimeState extends State<SetTime> {
           },
           icon: const Icon(Icons.arrow_back_ios),
         ),
-        actions: [
-          IconButton(
-            onPressed: () {
-              debugPrint('Actions');
-            },
-            icon: const Icon(Icons.info_outline),
-          ),
-        ],
       ),
       body: Padding(
         padding: const EdgeInsets.only(left: 25, top: 10, right: 25),
@@ -58,7 +51,7 @@ class _SetTimeState extends State<SetTime> {
             Container(
               width: double.infinity,
               decoration: BoxDecoration(
-                color: Colors.orange,
+                color: const Color.fromARGB(200, 34, 34, 34),
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Padding(
@@ -70,11 +63,14 @@ class _SetTimeState extends State<SetTime> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          const Text("24-Hour Time"),
+                          const Text(
+                            "24-Hour Time",
+                            style: TextStyle(color: Colors.white),
+                          ),
                           Switch(
                             // This bool value toggles the switch.
                             value: light,
-                            activeColor: Colors.red,
+                            activeColor: Colors.green,
                             onChanged: (bool value) {
                               // This is called when the user toggles the switch.
                               setState(() {
@@ -93,7 +89,7 @@ class _SetTimeState extends State<SetTime> {
             Container(
               width: double.infinity,
               decoration: BoxDecoration(
-                color: Colors.orange,
+                color: const Color.fromARGB(200, 34, 34, 34),
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Padding(
@@ -105,11 +101,14 @@ class _SetTimeState extends State<SetTime> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          const Text("Set Automatically"),
+                          const Text(
+                            "Set Automatically",
+                            style: TextStyle(color: Colors.white),
+                          ),
                           Switch(
                             // This bool value toggles the switch.
                             value: light,
-                            activeColor: Colors.red,
+                            activeColor: Colors.green,
                             onChanged: (bool value) {
                               // This is called when the user toggles the switch.
                               setState(() {
@@ -185,7 +184,7 @@ class _SetTimeState extends State<SetTime> {
             Container(
               width: double.infinity,
               decoration: BoxDecoration(
-                color: Colors.orange,
+                color: const Color.fromARGB(200, 34, 34, 34),
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Padding(
@@ -217,7 +216,7 @@ class _SetTimeState extends State<SetTime> {
                             Switch(
                               // This bool value toggles the switch.
                               value: light,
-                              activeColor: Colors.red,
+                              activeColor: Colors.green,
                               onChanged: (bool value) {
                                 // This is called when the user toggles the switch.
                                 setState(() {
@@ -254,7 +253,7 @@ class _SetTimeState extends State<SetTime> {
                             Switch(
                               // This bool value toggles the switch.
                               value: light,
-                              activeColor: Colors.red,
+                              activeColor: Colors.green,
                               onChanged: (bool value) {
                                 // This is called when the user toggles the switch.
                                 setState(() {
@@ -291,7 +290,7 @@ class _SetTimeState extends State<SetTime> {
                             Switch(
                               // This bool value toggles the switch.
                               value: light,
-                              activeColor: Colors.red,
+                              activeColor: Colors.green,
                               onChanged: (bool value) {
                                 // This is called when the user toggles the switch.
                                 setState(() {
@@ -328,7 +327,7 @@ class _SetTimeState extends State<SetTime> {
                             Switch(
                               // This bool value toggles the switch.
                               value: light,
-                              activeColor: Colors.red,
+                              activeColor: Colors.green,
                               onChanged: (bool value) {
                                 // This is called when the user toggles the switch.
                                 setState(() {
