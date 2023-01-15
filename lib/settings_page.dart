@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mywatchapp/display_and_brigtness.dart';
 import 'package:mywatchapp/face_gallery_information.dart';
-import 'package:mywatchapp/generalPage.dart';
+import 'package:mywatchapp/general_page.dart';
 import 'package:mywatchapp/notifications.dart';
 import 'package:mywatchapp/setTime.dart';
 import 'package:mywatchapp/soundAndVolume.dart';
