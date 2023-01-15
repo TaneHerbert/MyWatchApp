@@ -10,7 +10,8 @@ class FaceGalleryInformation extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Face Gallery Information'),
+        backgroundColor: Colors.black,
+        title: Text(test.title),
         automaticallyImplyLeading: false,
         leading: IconButton(
           onPressed: () {
@@ -18,32 +19,106 @@ class FaceGalleryInformation extends StatelessWidget {
           },
           icon: const Icon(Icons.arrow_back_ios),
         ),
-        actions: [
-          IconButton(
-            onPressed: () {
-              debugPrint('Actions');
-            },
-            icon: const Icon(Icons.info_outline),
-          ),
-        ],
       ),
-      body: Column(
-        children: [
-          Text(
-            test.title,
-            style: const TextStyle(color: Colors.white),
-          ),
-          Text(
-            test.description,
-            style: const TextStyle(color: Colors.white),
-          ),
-          Container(
-            width: 100,
-            height: 100,
-            decoration: const BoxDecoration(color: Colors.amber),
-            child: Image.asset(test.photo),
-          ),
-        ],
+      body: Padding(
+        padding: const EdgeInsets.only(left: 25, top: 10, right: 25),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(
+              height: 170,
+              child: Align(
+                  alignment: Alignment.topCenter,
+                  child: Expanded(child: Image.asset(test.photo))),
+            ),
+            SizedBox(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    'Description',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20),
+                  ),
+                  const SizedBox(height: 10),
+                  Text(
+                    test.description,
+                    style: const TextStyle(
+                      color: Colors.grey,
+                    ),
+                    textAlign: TextAlign.justify,
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 20),
+            SizedBox(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    'What sensors are included?',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20),
+                  ),
+                  const SizedBox(height: 10),
+                  Text(
+                    test.description,
+                    style: const TextStyle(
+                      color: Colors.grey,
+                    ),
+                    textAlign: TextAlign.justify,
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 20),
+            InkWell(
+              onTap: () {},
+              child: Container(
+                height: 40,
+                decoration: BoxDecoration(
+                    color: const Color.fromARGB(200, 34, 34, 34),
+                    borderRadius: BorderRadius.circular(10)),
+                child: const Align(
+                  alignment: Alignment.centerLeft,
+                  child: Padding(
+                    padding: EdgeInsets.only(left: 20),
+                    child: Text(
+                      "Set as current Watch Display",
+                      style: TextStyle(color: Colors.orange),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(height: 20),
+            InkWell(
+              onTap: () {},
+              child: Container(
+                height: 40,
+                decoration: BoxDecoration(
+                  color: const Color.fromARGB(200, 34, 34, 34),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: const Align(
+                  alignment: Alignment.centerLeft,
+                  child: Padding(
+                    padding: EdgeInsets.only(left: 20),
+                    child: Text(
+                      "Test Watch Display",
+                      style: TextStyle(color: Colors.orange),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

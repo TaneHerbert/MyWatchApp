@@ -1,54 +1,79 @@
 import 'package:flutter/material.dart';
 import 'package:mywatchapp/display_and_brigtness.dart';
+import 'package:mywatchapp/face_gallery_information.dart';
 import 'package:mywatchapp/generalPage.dart';
 import 'package:mywatchapp/notifications.dart';
-import 'package:mywatchapp/setAlarm.dart';
 import 'package:mywatchapp/setTime.dart';
 import 'package:mywatchapp/soundAndVolume.dart';
+import 'package:carousel_slider/carousel_slider.dart';
+
+import 'faceGalleryInformationClass.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    List<Todo> faceGalleryList = [
+      const Todo(
+          'Test 1',
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget risus purus. Suspendisse ullamcorper ut felis in tincidunt. Vestibulum finibus hendrerit dui, et tincidunt lectus feugiat non. Etiam eu placerat urna, sed fermentum elit. Sed dapibus nisl eleifend suscipit fringilla. Vestibulum sed lacinia sapien. Aenean feugiat fringilla purus. Etiam non arcu ante.',
+          'images/faceGallery.png'),
+      const Todo('Test 2', 'Description 2', 'images/faceGallery.png'),
+      const Todo('Test 3', 'Description 3', 'images/faceGallery.png'),
+      const Todo('Test 4', 'Description 4', 'images/faceGallery.png'),
+      const Todo('Test 5', 'Description 5', 'images/faceGallery.png'),
+    ];
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.only(left: 25, top: 10, right: 25),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              "My Display",
-              style: TextStyle(
+            const Padding(
+              padding: EdgeInsets.only(bottom: 15),
+              child: Text(
+                "My Display",
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold),
+              ),
+            ),
+            Column(children: [
+              SizedBox(
+                child: Image.asset(
+                  'images/mainphoto.png',
+                  width: 130,
+                ),
+              ),
+              const Padding(
+                padding: EdgeInsets.only(top: 10),
+                child: Text(
+                  "Testing",
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
+            ]),
+            const Padding(
+              padding: EdgeInsets.only(top: 10, bottom: 10),
+              child: Text(
+                "Settings",
+                style: TextStyle(
                   color: Colors.white,
                   fontSize: 20,
-                  fontWeight: FontWeight.bold),
-            ),
-            SizedBox(
-              width: 100,
-              height: 100,
-              child: Image.asset('images/mainphoto.png'),
-            ),
-            const Text(
-              "Testing",
-              style: TextStyle(color: Colors.white),
-            ),
-            const Text(
-              "Settings",
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
             Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
                   width: double.infinity,
                   decoration: BoxDecoration(
-                    color: const Color.fromARGB(200, 34, 34, 34),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
+                      borderRadius: BorderRadius.circular(10),
+                      color: const Color.fromARGB(200, 34, 34, 34)),
                   child: Padding(
                     padding: const EdgeInsets.only(left: 20, right: 20),
                     child: Column(
@@ -205,36 +230,64 @@ class SettingsPage extends StatelessWidget {
                             ),
                           ),
                         ),
-                        InkWell(
-                          onTap: () {
+                      ],
+                    ),
+                  ),
+                ),
+                const Padding(
+                  padding: EdgeInsets.only(
+                    right: 10,
+                    top: 4,
+                    bottom: 4,
+                  ),
+                  child: Text(
+                    "Watch Faces",
+                    style: TextStyle(
+                      color: Colors.grey,
+                    ),
+                  ),
+                ),
+                CarouselSlider(
+                  options: CarouselOptions(
+                    height: 160.0,
+                    enableInfiniteScroll: true,
+                    viewportFraction: 0.4,
+                    reverse: false,
+                    initialPage: 0,
+                  ),
+                  items: [1, 2, 3, 4, 5].map((i) {
+                    return Builder(
+                      builder: (BuildContext context) {
+                        return InkWell(
+                          onTap: () async {
+                            // ignore: use_build_context_synchronously
                             Navigator.of(context).push(
                               MaterialPageRoute(
                                 builder: (BuildContext context) {
-                                  return const SetAlarm();
+                                  return FaceGalleryInformation(
+                                    test: faceGalleryList[i - 1],
+                                  );
                                 },
                               ),
                             );
                           },
-                          child: SizedBox(
-                            height: 40,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: const [
+                          child: Container(
+                            width: MediaQuery.of(context).size.width,
+                            margin: const EdgeInsets.symmetric(horizontal: 5.0),
+                            child: Column(
+                              children: [
+                                Image.asset(faceGalleryList[i - 1].photo),
                                 Text(
-                                  "Set Alarm",
-                                  style: TextStyle(color: Colors.white),
-                                ),
-                                Text(
-                                  ">",
-                                  style: TextStyle(color: Colors.white),
-                                ),
+                                  faceGalleryList[i - 1].title,
+                                  style: const TextStyle(color: Colors.white),
+                                )
                               ],
                             ),
                           ),
-                        ),
-                      ],
-                    ),
-                  ),
+                        );
+                      },
+                    );
+                  }).toList(),
                 ),
               ],
             ),

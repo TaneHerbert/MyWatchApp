@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_blue/flutter_blue.dart';
 
 import 'package:mywatchapp/discover_page.dart';
-import 'package:mywatchapp/face_gallery_page.dart';
 import 'package:mywatchapp/home_page.dart';
 import 'package:mywatchapp/settingsPage.dart';
 
@@ -43,7 +42,7 @@ class _RootPageState extends State<RootPage> {
   List<Widget> pages = [];
   List<String> titles = [
     '',
-    'Face Gallery',
+    // 'Face Gallery',
     'Discover',
   ];
 
@@ -52,7 +51,7 @@ class _RootPageState extends State<RootPage> {
     super.initState();
 
     // Run this function when the app is loaded up
-    pages = const [HomePage(), FaceGalleryPage(), DiscoverPage()];
+    pages = const [HomePage(), DiscoverPage()];
     runFunctionOnStartup();
   }
 
@@ -61,19 +60,19 @@ class _RootPageState extends State<RootPage> {
     List<BluetoothDevice> bondedDevices = await flutterBlue.connectedDevices;
 
     if (bondedDevices.isEmpty) {
-      pages = const [HomePage(), FaceGalleryPage(), DiscoverPage()];
+      pages = const [HomePage(), DiscoverPage()];
       titles[0] = '';
     }
 
     for (BluetoothDevice device in bondedDevices) {
       if (device.name == "Tane") {
         setState(() {
-          pages = const [SettingsPage(), FaceGalleryPage(), DiscoverPage()];
+          pages = const [SettingsPage(), DiscoverPage()];
           titles[0] = 'My Watch';
         });
       } else {
         setState(() {
-          pages = const [HomePage(), FaceGalleryPage(), DiscoverPage()];
+          pages = const [HomePage(), DiscoverPage()];
           titles[0] = '';
         });
       }
@@ -105,10 +104,10 @@ class _RootPageState extends State<RootPage> {
             icon: Icon(Icons.watch),
             label: "My Watch",
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.list),
-            label: "Face Gallery",
-          ),
+          // BottomNavigationBarItem(
+          //   icon: Icon(Icons.list),
+          //   label: "Face Gallery",
+          // ),
           BottomNavigationBarItem(
             icon: Icon(Icons.search),
             label: "Discover",
