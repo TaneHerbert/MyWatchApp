@@ -17,7 +17,7 @@ class SettingsPage extends StatelessWidget {
     List<Todo> faceGalleryList = [
       const Todo(
           'Test 1',
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget risus purus. Suspendisse ullamcorper ut felis in tincidunt. Vestibulum finibus hendrerit dui, et tincidunt lectus feugiat non. Etiam eu placerat urna, sed fermentum elit. Sed dapibus nisl eleifend suscipit fringilla. Vestibulum sed lacinia sapien. Aenean feugiat fringilla purus. Etiam non arcu ante.',
+          'Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget risus purus. Suspendisse ullamcorper ut felis in tincidunt. Vestibulum finibus hendrerit dui, et tincidunt lectus feugiat non. Etiam eu placerat urna, sed fermentum elit. Sed dapibus nisl eleifend suscipit fringilla. Vestibulum sed lacinia sapien. Aenean feugiat fringilla purus. Etiam non arcu ante.',
           'images/faceGallery.png'),
       const Todo(
           'Test 2',
