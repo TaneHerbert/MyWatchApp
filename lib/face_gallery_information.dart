@@ -78,6 +78,7 @@ class _FaceGalleryInformationState extends State<FaceGalleryInformation> {
                           child: Text(
                             widget.test.description,
                             style: const TextStyle(color: Colors.grey),
+                            textAlign: TextAlign.justify,
                             maxLines: _isExpandedDescription ? null : 5,
                             overflow: _isExpandedDescription
                                 ? TextOverflow.clip
@@ -123,6 +124,7 @@ class _FaceGalleryInformationState extends State<FaceGalleryInformation> {
                           child: Text(
                             widget.test.description,
                             style: const TextStyle(color: Colors.grey),
+                            textAlign: TextAlign.justify,
                             maxLines: _isExpandedSensors ? null : 5,
                             overflow: _isExpandedSensors
                                 ? TextOverflow.clip
