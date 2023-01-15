@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'faceGalleryInformationClass.dart';
+import 'face_gallery_information_class.dart';
 
 class FaceGalleryInformation extends StatelessWidget {
   const FaceGalleryInformation({super.key, required this.test});
@@ -20,18 +20,29 @@ class FaceGalleryInformation extends StatelessWidget {
           icon: const Icon(Icons.arrow_back_ios),
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.only(left: 25, top: 10, right: 25),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(left: 20, top: 10, right: 20),
+            child: SizedBox(
               height: 170,
               child: Align(
                   alignment: Alignment.topCenter,
-                  child: Expanded(child: Image.asset(test.photo))),
+                  child: Image.asset(test.photo)),
             ),
-            SizedBox(
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 20, top: 10, bottom: 10),
+            child: Container(
+              width: double.infinity,
+              height: 1,
+              color: const Color.fromARGB(255, 64, 64, 64),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 20, right: 20),
+            child: SizedBox(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -53,8 +64,18 @@ class FaceGalleryInformation extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(height: 20),
-            SizedBox(
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 20, top: 10, bottom: 10),
+            child: Container(
+              width: double.infinity,
+              height: 1,
+              color: const Color.fromARGB(255, 64, 64, 64),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 20, right: 20),
+            child: SizedBox(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -76,8 +97,18 @@ class FaceGalleryInformation extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(height: 20),
-            InkWell(
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 20, top: 10, bottom: 10),
+            child: Container(
+              width: double.infinity,
+              height: 1,
+              color: const Color.fromARGB(255, 64, 64, 64),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 20, right: 20),
+            child: InkWell(
               onTap: () {},
               child: Container(
                 height: 40,
@@ -96,8 +127,11 @@ class FaceGalleryInformation extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(height: 20),
-            InkWell(
+          ),
+          const SizedBox(height: 20),
+          Padding(
+            padding: const EdgeInsets.only(left: 20, right: 20),
+            child: InkWell(
               onTap: () {},
               child: Container(
                 height: 40,
@@ -117,8 +151,8 @@ class FaceGalleryInformation extends StatelessWidget {
                 ),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

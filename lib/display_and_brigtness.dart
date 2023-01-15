@@ -26,15 +26,15 @@ class _DisplayAndBrightnessState extends State<DisplayAndBrightness> {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.only(left: 25, top: 10, right: 25),
+        padding: const EdgeInsets.only(left: 20, top: 20, right: 20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Padding(
               padding:
-                  EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 10),
+                  EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 10),
               child: Text(
-                "Brightness",
+                "BRIGHTNESS",
                 style: TextStyle(
                   color: Colors.grey,
                 ),
@@ -47,7 +47,7 @@ class _DisplayAndBrightnessState extends State<DisplayAndBrightness> {
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Padding(
-                padding: const EdgeInsets.only(left: 10, right: 10),
+                padding: const EdgeInsets.only(left: 20, right: 20),
                 child: Column(
                   children: [
                     SizedBox(
@@ -55,16 +55,12 @@ class _DisplayAndBrightnessState extends State<DisplayAndBrightness> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          const Flexible(
-                            flex: 1,
-                            child: Icon(
-                              Icons.cloud,
-                              size: 25,
-                              color: Colors.white,
-                            ),
+                          const Icon(
+                            Icons.cloud,
+                            size: 25,
+                            color: Colors.white,
                           ),
                           Flexible(
-                            flex: 15,
                             child: Slider(
                               value: _currentSliderValue,
                               max: 100,
@@ -77,13 +73,10 @@ class _DisplayAndBrightnessState extends State<DisplayAndBrightness> {
                               },
                             ),
                           ),
-                          const Flexible(
-                            flex: 2,
-                            child: Icon(
-                              Icons.sunny,
-                              size: 25,
-                              color: Colors.white,
-                            ),
+                          const Icon(
+                            Icons.sunny,
+                            size: 25,
+                            color: Colors.white,
                           ),
                         ],
                       ),
@@ -100,7 +93,7 @@ class _DisplayAndBrightnessState extends State<DisplayAndBrightness> {
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Padding(
-                padding: const EdgeInsets.only(left: 20, right: 5),
+                padding: const EdgeInsets.only(left: 20, right: 10),
                 child: Column(
                   children: [
                     SizedBox(
@@ -131,13 +124,14 @@ class _DisplayAndBrightnessState extends State<DisplayAndBrightness> {
               ),
             ),
             const Padding(
-              padding: EdgeInsets.only(left: 10, right: 10, top: 10),
+              padding: EdgeInsets.only(left: 20, right: 20, top: 10),
               child: Text(
                 "Your watch can always show the time. This will cause the battery to decrease very quick.",
                 style: TextStyle(color: Colors.grey),
+                textAlign: TextAlign.justify,
               ),
             ),
-            const SizedBox(height: 30),
+            const SizedBox(height: 20),
             InkWell(
               onTap: () {
                 Navigator.of(context).push(
@@ -155,7 +149,7 @@ class _DisplayAndBrightnessState extends State<DisplayAndBrightness> {
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.only(left: 20, right: 20),
+                  padding: const EdgeInsets.only(left: 20, right: 15),
                   child: Column(
                     children: [
                       SizedBox(
@@ -169,7 +163,7 @@ class _DisplayAndBrightnessState extends State<DisplayAndBrightness> {
                             ),
                             Text(
                               ">",
-                              style: TextStyle(color: Colors.white),
+                              style: TextStyle(color: Colors.grey),
                             ),
                           ],
                         ),
@@ -194,20 +188,92 @@ class WakeDuration extends StatefulWidget {
 }
 
 class _WakeDurationState extends State<WakeDuration> {
+  List<String> texts1 = [
+    "Wake for 15 Seconds",
+    "Wake for 70 Seconds",
+  ];
+
+  int _selectedIndex1 = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.black,
-        title: const Text('Wake Duration'),
-        automaticallyImplyLeading: false,
-        leading: IconButton(
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
-          icon: const Icon(Icons.arrow_back_ios),
+        appBar: AppBar(
+          backgroundColor: Colors.black,
+          title: const Text('Wake Duration'),
+          automaticallyImplyLeading: false,
+          leading: IconButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            icon: const Icon(Icons.arrow_back_ios),
+          ),
         ),
-      ),
-    );
+        body: Padding(
+          padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Padding(
+                padding:
+                    EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 10),
+                child: Text(
+                  "ON TAP",
+                  style: TextStyle(color: Colors.grey),
+                ),
+              ),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: SizedBox(
+                  child: Wrap(
+                    children: List.generate(
+                        2,
+                        (index) => InkWell(
+                              onTap: () {
+                                setState(() {
+                                  _selectedIndex1 = index;
+                                });
+                              },
+                              child: Container(
+                                height: 40,
+                                decoration: const BoxDecoration(
+                                  color: Color.fromARGB(200, 34, 34, 34),
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsets.only(
+                                      left: 20, right: 20),
+                                  child: Align(
+                                      alignment: Alignment.centerLeft,
+                                      child: Row(
+                                        children: <Widget>[
+                                          Text(
+                                            texts1[index],
+                                            style: const TextStyle(
+                                                color: Colors.white),
+                                          ),
+                                          const Spacer(flex: 1),
+                                          _selectedIndex1 == index
+                                              ? const Icon(Icons.check,
+                                                  color: Colors.orange)
+                                              : const SizedBox(),
+                                        ],
+                                      )),
+                                ),
+                              ),
+                            )),
+                  ),
+                ),
+              ),
+              const Padding(
+                padding:
+                    EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 10),
+                child: Text(
+                  "Choose how long the Watch display stays on when you tap to wake it",
+                  style: TextStyle(color: Colors.grey),
+                ),
+              ),
+            ],
+          ),
+        ));
   }
 }

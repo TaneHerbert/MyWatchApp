@@ -9,7 +9,11 @@ class Notifications extends StatefulWidget {
 }
 
 class _NotificationsState extends State<Notifications> {
-  bool light = true;
+  bool instagram = true;
+  bool snapchat = true;
+  bool twitter = true;
+  bool youtube = true;
+  bool mail = true;
 
   @override
   Widget build(BuildContext context) {
@@ -26,9 +30,20 @@ class _NotificationsState extends State<Notifications> {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.only(left: 25, top: 10, right: 25),
+        padding: const EdgeInsets.only(left: 20, top: 20, right: 20),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            const Padding(
+              padding:
+                  EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 10),
+              child: Text(
+                "Notifications",
+                style: TextStyle(
+                  color: Colors.grey,
+                ),
+              ),
+            ),
             Container(
               width: double.infinity,
               decoration: BoxDecoration(
@@ -56,12 +71,12 @@ class _NotificationsState extends State<Notifications> {
                           const Spacer(flex: 1),
                           Switch(
                             // This bool value toggles the switch.
-                            value: light,
+                            value: instagram,
                             activeColor: Colors.green,
                             onChanged: (bool value) {
                               // This is called when the user toggles the switch.
                               setState(() {
-                                light = value;
+                                instagram = value;
                               });
                             },
                           ),
@@ -85,12 +100,12 @@ class _NotificationsState extends State<Notifications> {
                           const Spacer(flex: 1),
                           Switch(
                             // This bool value toggles the switch.
-                            value: light,
+                            value: snapchat,
                             activeColor: Colors.green,
                             onChanged: (bool value) {
                               // This is called when the user toggles the switch.
                               setState(() {
-                                light = value;
+                                snapchat = value;
                               });
                             },
                           ),
@@ -114,12 +129,12 @@ class _NotificationsState extends State<Notifications> {
                           const Spacer(flex: 1),
                           Switch(
                             // This bool value toggles the switch.
-                            value: light,
+                            value: twitter,
                             activeColor: Colors.green,
                             onChanged: (bool value) {
                               // This is called when the user toggles the switch.
                               setState(() {
-                                light = value;
+                                twitter = value;
                               });
                             },
                           ),
@@ -143,12 +158,12 @@ class _NotificationsState extends State<Notifications> {
                           const Spacer(flex: 1),
                           Switch(
                             // This bool value toggles the switch.
-                            value: light,
+                            value: youtube,
                             activeColor: Colors.green,
                             onChanged: (bool value) {
                               // This is called when the user toggles the switch.
                               setState(() {
-                                light = value;
+                                youtube = value;
                               });
                             },
                           ),
@@ -173,12 +188,12 @@ class _NotificationsState extends State<Notifications> {
                           const Spacer(flex: 1),
                           Switch(
                             // This bool value toggles the switch.
-                            value: light,
+                            value: mail,
                             activeColor: Colors.green,
                             onChanged: (bool value) {
                               // This is called when the user toggles the switch.
                               setState(() {
-                                light = value;
+                                mail = value;
                               });
                             },
                           ),
@@ -189,27 +204,38 @@ class _NotificationsState extends State<Notifications> {
                 ),
               ),
             ),
-            const SizedBox(height: 30),
-            Container(
-              width: double.infinity,
-              decoration: BoxDecoration(
-                color: Colors.red,
-                borderRadius: BorderRadius.circular(10),
+            const Padding(
+              padding: EdgeInsets.only(left: 20, right: 20, top: 10),
+              child: Text(
+                "Notifications appear when you'are wearing and not wearing your Watch. They won't appear on your watch when you're using your phone.",
+                style: TextStyle(color: Colors.grey),
+                textAlign: TextAlign.justify,
               ),
-              child: Padding(
-                padding: const EdgeInsets.only(left: 20, right: 20),
-                child: Column(
-                  children: const [
-                    SizedBox(
-                      height: 50,
-                      child: Align(
-                          alignment: Alignment.center,
-                          child: Text(
-                            "Clear All",
-                            style: TextStyle(color: Colors.white),
-                          )),
-                    ),
-                  ],
+            ),
+            const SizedBox(height: 30),
+            InkWell(
+              onTap: () {},
+              child: Container(
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: Colors.red,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 20, right: 20),
+                  child: Column(
+                    children: const [
+                      SizedBox(
+                        height: 50,
+                        child: Align(
+                            alignment: Alignment.center,
+                            child: Text(
+                              "Clear All",
+                              style: TextStyle(color: Colors.white),
+                            )),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),

@@ -3,11 +3,11 @@ import 'package:mywatchapp/display_and_brigtness.dart';
 import 'package:mywatchapp/face_gallery_information.dart';
 import 'package:mywatchapp/general_page.dart';
 import 'package:mywatchapp/notifications.dart';
-import 'package:mywatchapp/setTime.dart';
-import 'package:mywatchapp/soundAndVolume.dart';
+import 'package:mywatchapp/set_time.dart';
+import 'package:mywatchapp/sound_and_volume.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
-import 'faceGalleryInformationClass.dart';
+import 'face_gallery_information_class.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({super.key});
@@ -19,10 +19,22 @@ class SettingsPage extends StatelessWidget {
           'Test 1',
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget risus purus. Suspendisse ullamcorper ut felis in tincidunt. Vestibulum finibus hendrerit dui, et tincidunt lectus feugiat non. Etiam eu placerat urna, sed fermentum elit. Sed dapibus nisl eleifend suscipit fringilla. Vestibulum sed lacinia sapien. Aenean feugiat fringilla purus. Etiam non arcu ante.',
           'images/faceGallery.png'),
-      const Todo('Test 2', 'Description 2', 'images/faceGallery.png'),
-      const Todo('Test 3', 'Description 3', 'images/faceGallery.png'),
-      const Todo('Test 4', 'Description 4', 'images/faceGallery.png'),
-      const Todo('Test 5', 'Description 5', 'images/faceGallery.png'),
+      const Todo(
+          'Test 2',
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget risus purus. Suspendisse ullamcorper ut felis in tincidunt. Vestibulum finibus hendrerit dui, et tincidunt lectus feugiat non. Etiam eu placerat urna, sed fermentum elit. Sed dapibus nisl eleifend suscipit fringilla. Vestibulum sed lacinia sapien. Aenean feugiat fringilla purus. Etiam non arcu ante.',
+          'images/faceGallery.png'),
+      const Todo(
+          'Test 3',
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget risus purus. Suspendisse ullamcorper ut felis in tincidunt. Vestibulum finibus hendrerit dui, et tincidunt lectus feugiat non. Etiam eu placerat urna, sed fermentum elit. Sed dapibus nisl eleifend suscipit fringilla. Vestibulum sed lacinia sapien. Aenean feugiat fringilla purus. Etiam non arcu ante.',
+          'images/faceGallery.png'),
+      const Todo(
+          'Test 4',
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget risus purus. Suspendisse ullamcorper ut felis in tincidunt. Vestibulum finibus hendrerit dui, et tincidunt lectus feugiat non. Etiam eu placerat urna, sed fermentum elit. Sed dapibus nisl eleifend suscipit fringilla. Vestibulum sed lacinia sapien. Aenean feugiat fringilla purus. Etiam non arcu ante.',
+          'images/faceGallery.png'),
+      const Todo(
+          'Test 5',
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget risus purus. Suspendisse ullamcorper ut felis in tincidunt. Vestibulum finibus hendrerit dui, et tincidunt lectus feugiat non. Etiam eu placerat urna, sed fermentum elit. Sed dapibus nisl eleifend suscipit fringilla. Vestibulum sed lacinia sapien. Aenean feugiat fringilla purus. Etiam non arcu ante.',
+          'images/faceGallery.png'),
     ];
     return Scaffold(
       body: Padding(
@@ -99,7 +111,7 @@ class SettingsPage extends StatelessWidget {
                                 ),
                                 Text(
                                   ">",
-                                  style: TextStyle(color: Colors.white),
+                                  style: TextStyle(color: Colors.grey),
                                 ),
                               ],
                             ),
@@ -126,7 +138,7 @@ class SettingsPage extends StatelessWidget {
                                 ),
                                 Text(
                                   ">",
-                                  style: TextStyle(color: Colors.white),
+                                  style: TextStyle(color: Colors.grey),
                                 ),
                               ],
                             ),
@@ -153,7 +165,7 @@ class SettingsPage extends StatelessWidget {
                                 ),
                                 Text(
                                   ">",
-                                  style: TextStyle(color: Colors.white),
+                                  style: TextStyle(color: Colors.grey),
                                 ),
                               ],
                             ),
@@ -197,7 +209,7 @@ class SettingsPage extends StatelessWidget {
                                 ),
                                 Text(
                                   ">",
-                                  style: TextStyle(color: Colors.white),
+                                  style: TextStyle(color: Colors.grey),
                                 ),
                               ],
                             ),
@@ -224,7 +236,7 @@ class SettingsPage extends StatelessWidget {
                                 ),
                                 Text(
                                   ">",
-                                  style: TextStyle(color: Colors.white),
+                                  style: TextStyle(color: Colors.grey),
                                 ),
                               ],
                             ),

@@ -8,7 +8,7 @@ class GeneralPage extends StatefulWidget {
 }
 
 class _GeneralPageState extends State<GeneralPage> {
-  String name = "Tane";
+  String name = "Watch";
 
   void changeName(String newName) {
     setState(() {
@@ -69,13 +69,13 @@ class _GeneralPageState extends State<GeneralPage> {
                             const Spacer(flex: 1),
                             Text(
                               name,
-                              style: const TextStyle(color: Colors.white),
+                              style: const TextStyle(color: Colors.grey),
                             ),
                             const Padding(
                               padding: EdgeInsets.only(left: 5),
                               child: Text(
                                 ">",
-                                style: TextStyle(color: Colors.white),
+                                style: TextStyle(color: Colors.grey),
                               ),
                             ),
                           ],
@@ -103,7 +103,7 @@ class _GeneralPageState extends State<GeneralPage> {
                             ),
                             Text(
                               ">",
-                              style: TextStyle(color: Colors.white),
+                              style: TextStyle(color: Colors.grey),
                             ),
                           ],
                         ),
@@ -145,7 +145,7 @@ class _GeneralPageState extends State<GeneralPage> {
                             ),
                             Text(
                               ">",
-                              style: TextStyle(color: Colors.white),
+                              style: TextStyle(color: Colors.grey),
                             ),
                           ],
                         ),
@@ -187,7 +187,7 @@ class _GeneralPageState extends State<GeneralPage> {
                             ),
                             Text(
                               ">",
-                              style: TextStyle(color: Colors.white),
+                              style: TextStyle(color: Colors.grey),
                             ),
                           ],
                         ),
@@ -228,7 +228,7 @@ class _NameState extends State<Name> {
           ),
         ),
         body: Padding(
-          padding: const EdgeInsets.all(10),
+          padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
           child: TextField(
             onChanged: (String value) {
               widget.nameChange(value);
@@ -236,14 +236,16 @@ class _NameState extends State<Name> {
             style: const TextStyle(color: Colors.white),
             textCapitalization: TextCapitalization.sentences,
             decoration: InputDecoration(
-              enabledBorder: const OutlineInputBorder(
-                borderSide: BorderSide(
+              enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+                borderSide: const BorderSide(
                   width: 1,
                   color: Colors.white,
                 ),
               ),
-              focusedBorder: const OutlineInputBorder(
-                borderSide: BorderSide(
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+                borderSide: const BorderSide(
                   width: 1,
                   color: Colors.blue,
                 ),
@@ -319,103 +321,124 @@ class _WatchOrientationState extends State<WatchOrientation> {
           icon: const Icon(Icons.arrow_back_ios),
         ),
       ),
-      body: Column(
-        children: [
-          Padding(
-              padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                child: SizedBox(
-                  child: Wrap(
-                    children: List.generate(
-                        2,
-                        (index) => InkWell(
-                              onTap: () {
-                                setState(() {
-                                  _selectedIndex1 = index;
-                                });
-                              },
-                              child: Container(
-                                height: 40,
-                                decoration: const BoxDecoration(
-                                  // color: _selectedIndex1 == index
-                                  //     ? Colors.green
-                                  //     : Colors.blue,
-                                  color: Color.fromARGB(200, 34, 34, 34),
-                                ),
-                                child: Padding(
-                                  padding: const EdgeInsets.only(
-                                      left: 20, right: 20),
-                                  child: Align(
-                                      alignment: Alignment.centerLeft,
-                                      child: Row(
-                                        children: <Widget>[
-                                          Text(
-                                            texts1[index],
-                                            style: const TextStyle(
-                                                color: Colors.white),
-                                          ),
-                                          const Spacer(flex: 1),
-                                          _selectedIndex1 == index
-                                              ? const Icon(Icons.check,
-                                                  color: Colors.orange)
-                                              : const SizedBox(),
-                                        ],
-                                      )),
-                                ),
-                              ),
-                            )),
-                  ),
+      body: Padding(
+        padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Padding(
+              padding:
+                  EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 10),
+              child: Text(
+                "WEAR WATCH ON",
+                style: TextStyle(
+                  color: Colors.grey,
                 ),
-              )),
-          Padding(
-              padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                child: SizedBox(
-                  child: Wrap(
-                    children: List.generate(
-                        2,
-                        (index) => InkWell(
-                              onTap: () {
-                                setState(() {
-                                  _selectedIndex2 = index;
-                                });
-                              },
-                              child: Container(
-                                height: 40,
-                                decoration: const BoxDecoration(
-                                  // color: _selectedIndex2 == index
-                                  //     ? Colors.green
-                                  //     : Colors.blue,
-                                  color: Color.fromARGB(200, 34, 34, 34),
-                                ),
-                                child: Padding(
-                                  padding: const EdgeInsets.only(
-                                      left: 20, right: 20),
-                                  child: Align(
-                                      alignment: Alignment.centerLeft,
-                                      child: Row(
-                                        children: <Widget>[
-                                          Text(
-                                            texts2[index],
-                                            style: const TextStyle(
-                                                color: Colors.white),
-                                          ),
-                                          const Spacer(flex: 1),
-                                          _selectedIndex2 == index
-                                              ? const Icon(Icons.check,
-                                                  color: Colors.orange)
-                                              : const SizedBox(),
-                                        ],
-                                      )),
-                                ),
+              ),
+            ),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(10),
+              child: SizedBox(
+                child: Wrap(
+                  children: List.generate(
+                      2,
+                      (index) => InkWell(
+                            onTap: () {
+                              setState(() {
+                                _selectedIndex1 = index;
+                              });
+                            },
+                            child: Container(
+                              height: 40,
+                              decoration: const BoxDecoration(
+                                color: Color.fromARGB(200, 34, 34, 34),
                               ),
-                            )),
-                  ),
+                              child: Padding(
+                                padding:
+                                    const EdgeInsets.only(left: 20, right: 20),
+                                child: Align(
+                                    alignment: Alignment.centerLeft,
+                                    child: Row(
+                                      children: <Widget>[
+                                        Text(
+                                          texts1[index],
+                                          style: const TextStyle(
+                                              color: Colors.white),
+                                        ),
+                                        const Spacer(flex: 1),
+                                        _selectedIndex1 == index
+                                            ? const Icon(Icons.check,
+                                                color: Colors.orange)
+                                            : const SizedBox(),
+                                      ],
+                                    )),
+                              ),
+                            ),
+                          )),
                 ),
-              )),
-        ],
+              ),
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(10),
+              child: SizedBox(
+                child: Wrap(
+                  children: List.generate(
+                      2,
+                      (index) => InkWell(
+                            onTap: () {
+                              setState(() {
+                                _selectedIndex2 = index;
+                              });
+                            },
+                            child: Container(
+                              height: 40,
+                              decoration: const BoxDecoration(
+                                // color: _selectedIndex2 == index
+                                //     ? Colors.green
+                                //     : Colors.blue,
+                                color: Color.fromARGB(200, 34, 34, 34),
+                              ),
+                              child: Padding(
+                                padding:
+                                    const EdgeInsets.only(left: 20, right: 20),
+                                child: Align(
+                                    alignment: Alignment.centerLeft,
+                                    child: Row(
+                                      children: <Widget>[
+                                        Text(
+                                          texts2[index],
+                                          style: const TextStyle(
+                                              color: Colors.white),
+                                        ),
+                                        const Spacer(flex: 1),
+                                        _selectedIndex2 == index
+                                            ? const Icon(Icons.check,
+                                                color: Colors.orange)
+                                            : const SizedBox(),
+                                      ],
+                                    )),
+                              ),
+                            ),
+                          )),
+                ),
+              ),
+            ),
+            const Padding(
+              padding:
+                  EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 10),
+              child: Text(
+                "Specifying your wrist and Digital Crown preference helps the watch knows how to orient it when woken",
+                style: TextStyle(
+                  color: Colors.grey,
+                ),
+                textAlign: TextAlign.justify,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -441,7 +464,7 @@ class _ReturnToClockState extends State<ReturnToClock> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black,
-        title: const Text('Watch Orientation'),
+        title: const Text('Return to Clock'),
         automaticallyImplyLeading: false,
         leading: IconButton(
           onPressed: () {
@@ -452,48 +475,70 @@ class _ReturnToClockState extends State<ReturnToClock> {
       ),
       body: Padding(
           padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(10),
-            child: SizedBox(
-              child: Wrap(
-                children: List.generate(
-                    4,
-                    (index) => InkWell(
-                          onTap: () {
-                            setState(() {
-                              _selectedIndex = index;
-                            });
-                          },
-                          child: Container(
-                            height: 40,
-                            decoration: const BoxDecoration(
-                              // color: _selectedIndex == index
-                              //     ? Colors.green
-                              //     : Colors.blue,
-                              color: Color.fromARGB(200, 34, 34, 34),
-                            ),
-                            child: Padding(
-                              padding:
-                                  const EdgeInsets.only(left: 20, right: 20),
-                              child: Align(
-                                  alignment: Alignment.centerLeft,
-                                  child: Row(
-                                    children: <Widget>[
-                                      Text(texts[index],
-                                          style: const TextStyle(
-                                              color: Colors.white)),
-                                      const Spacer(flex: 1),
-                                      _selectedIndex == index
-                                          ? const Icon(Icons.check,
-                                              color: Colors.orange)
-                                          : const SizedBox(),
-                                    ],
-                                  )),
-                            ),
-                          ),
-                        )),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Padding(
+                padding:
+                    EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 10),
+                child: Text(
+                  "RETURN TO CLOCK",
+                  style: TextStyle(color: Colors.grey),
+                ),
               ),
-            ),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: SizedBox(
+                  child: Wrap(
+                    children: List.generate(
+                        4,
+                        (index) => InkWell(
+                              onTap: () {
+                                setState(() {
+                                  _selectedIndex = index;
+                                });
+                              },
+                              child: Container(
+                                height: 40,
+                                decoration: const BoxDecoration(
+                                  // color: _selectedIndex == index
+                                  //     ? Colors.green
+                                  //     : Colors.blue,
+                                  color: Color.fromARGB(200, 34, 34, 34),
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsets.only(
+                                      left: 20, right: 20),
+                                  child: Align(
+                                      alignment: Alignment.centerLeft,
+                                      child: Row(
+                                        children: <Widget>[
+                                          Text(texts[index],
+                                              style: const TextStyle(
+                                                  color: Colors.white)),
+                                          const Spacer(flex: 1),
+                                          _selectedIndex == index
+                                              ? const Icon(Icons.check,
+                                                  color: Colors.orange)
+                                              : const SizedBox(),
+                                        ],
+                                      )),
+                                ),
+                              ),
+                            )),
+                  ),
+                ),
+              ),
+              const Padding(
+                padding:
+                    EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 10),
+                child: Text(
+                  "Watch will return to the Clock Face after a certain amount of time after the Digital Crown is pressed.",
+                  style: TextStyle(color: Colors.grey),
+                  textAlign: TextAlign.justify,
+                ),
+              ),
+            ],
           )),
     );
   }

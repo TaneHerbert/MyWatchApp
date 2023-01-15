@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_blue/flutter_blue.dart';
 import 'package:mywatchapp/discover_page.dart';
 import 'package:mywatchapp/home_page.dart';
-import 'package:mywatchapp/settingsPage.dart';
+import 'package:mywatchapp/settings_page.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -38,7 +38,7 @@ class RootPage extends StatefulWidget {
 class _RootPageState extends State<RootPage> {
   int currentPage = 0;
   List<Widget> pages = [const HomePage(), const DiscoverPage()];
-  String title = '';
+  List<String> title = ['', 'Discover'];
 
   @override
   void initState() {
@@ -50,11 +50,18 @@ class _RootPageState extends State<RootPage> {
     FlutterBlue flutterBlue = FlutterBlue.instance;
     List<BluetoothDevice> bondedDevices = await flutterBlue.connectedDevices;
 
+    if (bondedDevices.isEmpty) {
+      setState(() {
+        pages = [const HomePage(), const DiscoverPage()];
+        title = ['', 'Discover'];
+      });
+    }
+
     for (BluetoothDevice device in bondedDevices) {
       if (device.name == "Tane") {
         setState(() {
           pages = [const SettingsPage(), const DiscoverPage()];
-          title = 'My Watch';
+          title = ['My Watch', 'Discover'];
         });
         return;
       }
@@ -67,7 +74,7 @@ class _RootPageState extends State<RootPage> {
       appBar: AppBar(
         backgroundColor: Colors.black,
         title: Text(
-          title,
+          title[currentPage],
           style: const TextStyle(
             fontSize: 35,
             fontWeight: FontWeight.bold,

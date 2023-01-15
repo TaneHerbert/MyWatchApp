@@ -26,13 +26,13 @@ class _SoundAndVolumeState extends State<SoundAndVolume> {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.only(left: 25, top: 10, right: 25),
+        padding: const EdgeInsets.only(left: 20, top: 20, right: 20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Padding(
               padding:
-                  EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 10),
+                  EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 10),
               child: Text(
                 "Volume",
                 style: TextStyle(
@@ -47,72 +47,80 @@ class _SoundAndVolumeState extends State<SoundAndVolume> {
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Padding(
-                padding: const EdgeInsets.only(left: 10, right: 10),
+                padding: const EdgeInsets.only(left: 20, right: 12),
                 child: Column(
                   children: [
-                    SizedBox(
-                      height: 40,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          const Flexible(
-                            flex: 1,
-                            child: Icon(
+                    Padding(
+                      padding: const EdgeInsets.only(right: 8),
+                      child: SizedBox(
+                        height: 40,
+                        child: Row(
+                          children: <Widget>[
+                            const Icon(
                               Icons.volume_down,
                               size: 25,
                               color: Colors.white,
                             ),
-                          ),
-                          Flexible(
-                            flex: 15,
-                            child: Slider(
-                              value: _currentSliderValue,
-                              max: 100,
-                              divisions: 5,
-                              label: _currentSliderValue.round().toString(),
-                              onChanged: (double value) {
-                                setState(() {
-                                  _currentSliderValue = value;
-                                });
-                              },
+                            Expanded(
+                              child: Slider(
+                                value: _currentSliderValue,
+                                max: 100,
+                                divisions: 5,
+                                label: _currentSliderValue.round().toString(),
+                                onChanged: (double value) {
+                                  setState(() {
+                                    _currentSliderValue = value;
+                                  });
+                                },
+                              ),
                             ),
-                          ),
-                          const Flexible(
-                            flex: 2,
-                            child: Icon(
+                            const Icon(
                               Icons.volume_up,
                               size: 25,
                               color: Colors.white,
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                     SizedBox(
                       height: 40,
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           const Text(
                             "Silent Mode",
                             style: TextStyle(color: Colors.white),
                           ),
-                          Switch(
-                            // This bool value toggles the switch.
-                            value: light,
-                            activeColor: Colors.green,
-                            onChanged: (bool value) {
-                              // This is called when the user toggles the switch.
-                              setState(() {
-                                light = value;
-                              });
-                            },
+                          const Spacer(
+                            flex: 1,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(0),
+                            child: Switch(
+                              // This bool value toggles the switch.
+                              value: light,
+                              activeColor: Colors.green,
+                              onChanged: (bool value) {
+                                // This is called when the user toggles the switch.
+                                setState(() {
+                                  light = value;
+                                });
+                              },
+                            ),
                           ),
                         ],
                       ),
                     ),
                   ],
                 ),
+              ),
+            ),
+            const Padding(
+              padding:
+                  EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 10),
+              child: Text(
+                "Silent mode will not mute alarms and timers.",
+                style: TextStyle(color: Colors.grey),
               ),
             ),
           ],
