@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mywatchapp/test.dart';
 import 'face_gallery_information_class.dart';
 
 class FaceGalleryInformation extends StatefulWidget {
@@ -23,6 +24,7 @@ class _FaceGalleryInformationState extends State<FaceGalleryInformation> {
         automaticallyImplyLeading: false,
         leading: IconButton(
           onPressed: () {
+            testthis();
             Navigator.of(context).pop();
           },
           icon: const Icon(Icons.arrow_back_ios),
@@ -147,7 +149,9 @@ class _FaceGalleryInformationState extends State<FaceGalleryInformation> {
               Padding(
                 padding: const EdgeInsets.only(left: 20, right: 20),
                 child: InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    testthis();
+                  },
                   child: Container(
                     height: 40,
                     decoration: BoxDecoration(
@@ -170,7 +174,9 @@ class _FaceGalleryInformationState extends State<FaceGalleryInformation> {
               Padding(
                 padding: const EdgeInsets.only(left: 20, right: 20),
                 child: InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    testthis();
+                  },
                   child: Container(
                     height: 40,
                     decoration: BoxDecoration(

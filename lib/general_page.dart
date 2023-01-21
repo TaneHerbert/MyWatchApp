@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:mywatchapp/test.dart';
 
 class GeneralPage extends StatefulWidget {
-  const GeneralPage({super.key});
+  const GeneralPage({
+    super.key,
+  });
 
   @override
   State<GeneralPage> createState() => _GeneralPageState();
@@ -25,6 +28,7 @@ class _GeneralPageState extends State<GeneralPage> {
         automaticallyImplyLeading: false,
         leading: IconButton(
           onPressed: () {
+            testthis();
             Navigator.of(context).pop();
           },
           icon: const Icon(Icons.arrow_back_ios),
@@ -46,6 +50,7 @@ class _GeneralPageState extends State<GeneralPage> {
                   children: [
                     InkWell(
                       onTap: () {
+                        testthis();
                         Navigator.of(context).push(
                           MaterialPageRoute(
                             builder: (BuildContext context) {
@@ -84,10 +89,13 @@ class _GeneralPageState extends State<GeneralPage> {
                     ),
                     InkWell(
                       onTap: () {
+                        testthis();
                         Navigator.of(context).push(
                           MaterialPageRoute(
                             builder: (BuildContext context) {
-                              return const SoftwareUpdate();
+                              return const SoftwareUpdate(
+                                  //test: widget.test,
+                                  );
                             },
                           ),
                         );
@@ -116,6 +124,7 @@ class _GeneralPageState extends State<GeneralPage> {
             const SizedBox(height: 30),
             InkWell(
               onTap: () {
+                testthis();
                 Navigator.of(context).push(
                   MaterialPageRoute(
                     builder: (BuildContext context) {
@@ -158,6 +167,7 @@ class _GeneralPageState extends State<GeneralPage> {
             const SizedBox(height: 30),
             InkWell(
               onTap: () {
+                testthis();
                 Navigator.of(context).push(
                   MaterialPageRoute(
                     builder: (BuildContext context) {
@@ -222,6 +232,7 @@ class _NameState extends State<Name> {
           automaticallyImplyLeading: false,
           leading: IconButton(
             onPressed: () {
+              testthis();
               Navigator.of(context).pop();
             },
             icon: const Icon(Icons.arrow_back_ios),
@@ -264,13 +275,20 @@ class _NameState extends State<Name> {
 }
 
 class SoftwareUpdate extends StatefulWidget {
-  const SoftwareUpdate({super.key});
+  const SoftwareUpdate({
+    super.key,
+  });
 
   @override
   State<SoftwareUpdate> createState() => _SoftwareUpdateState();
 }
 
 class _SoftwareUpdateState extends State<SoftwareUpdate> {
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -280,6 +298,7 @@ class _SoftwareUpdateState extends State<SoftwareUpdate> {
         automaticallyImplyLeading: false,
         leading: IconButton(
           onPressed: () {
+            testthis();
             Navigator.of(context).pop();
           },
           icon: const Icon(Icons.arrow_back_ios),
@@ -316,6 +335,7 @@ class _WatchOrientationState extends State<WatchOrientation> {
         automaticallyImplyLeading: false,
         leading: IconButton(
           onPressed: () {
+            testthis();
             Navigator.of(context).pop();
           },
           icon: const Icon(Icons.arrow_back_ios),
@@ -468,6 +488,7 @@ class _ReturnToClockState extends State<ReturnToClock> {
         automaticallyImplyLeading: false,
         leading: IconButton(
           onPressed: () {
+            testthis();
             Navigator.of(context).pop();
           },
           icon: const Icon(Icons.arrow_back_ios),

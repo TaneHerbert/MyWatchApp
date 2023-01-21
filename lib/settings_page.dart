@@ -2,40 +2,52 @@ import 'package:flutter/material.dart';
 import 'package:mywatchapp/display_and_brigtness.dart';
 import 'package:mywatchapp/face_gallery_information.dart';
 import 'package:mywatchapp/general_page.dart';
+
 import 'package:mywatchapp/notifications.dart';
 import 'package:mywatchapp/set_time.dart';
 import 'package:mywatchapp/sound_and_volume.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:mywatchapp/test.dart';
 
 import 'face_gallery_information_class.dart';
 
-class SettingsPage extends StatelessWidget {
-  const SettingsPage({super.key});
+class SettingsPage extends StatefulWidget {
+  const SettingsPage({
+    super.key,
+    // required this.test,
+  });
+
+  // final Function test;
 
   @override
+  State<SettingsPage> createState() => _SettingsPageState();
+}
+
+class _SettingsPageState extends State<SettingsPage> {
+  List<Todo> faceGalleryList = [
+    const Todo(
+        'Test 1',
+        'Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget risus purus. Suspendisse ullamcorper ut felis in tincidunt. Vestibulum finibus hendrerit dui, et tincidunt lectus feugiat non. Etiam eu placerat urna, sed fermentum elit. Sed dapibus nisl eleifend suscipit fringilla. Vestibulum sed lacinia sapien. Aenean feugiat fringilla purus. Etiam non arcu ante.',
+        'images/faceGallery.png'),
+    const Todo(
+        'Test 2',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget risus purus. Suspendisse ullamcorper ut felis in tincidunt. Vestibulum finibus hendrerit dui, et tincidunt lectus feugiat non. Etiam eu placerat urna, sed fermentum elit. Sed dapibus nisl eleifend suscipit fringilla. Vestibulum sed lacinia sapien. Aenean feugiat fringilla purus. Etiam non arcu ante.',
+        'images/faceGallery.png'),
+    const Todo(
+        'Test 3',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget risus purus. Suspendisse ullamcorper ut felis in tincidunt. Vestibulum finibus hendrerit dui, et tincidunt lectus feugiat non. Etiam eu placerat urna, sed fermentum elit. Sed dapibus nisl eleifend suscipit fringilla. Vestibulum sed lacinia sapien. Aenean feugiat fringilla purus. Etiam non arcu ante.',
+        'images/faceGallery.png'),
+    const Todo(
+        'Test 4',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget risus purus. Suspendisse ullamcorper ut felis in tincidunt. Vestibulum finibus hendrerit dui, et tincidunt lectus feugiat non. Etiam eu placerat urna, sed fermentum elit. Sed dapibus nisl eleifend suscipit fringilla. Vestibulum sed lacinia sapien. Aenean feugiat fringilla purus. Etiam non arcu ante.',
+        'images/faceGallery.png'),
+    const Todo(
+        'Test 5',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget risus purus. Suspendisse ullamcorper ut felis in tincidunt. Vestibulum finibus hendrerit dui, et tincidunt lectus feugiat non. Etiam eu placerat urna, sed fermentum elit. Sed dapibus nisl eleifend suscipit fringilla. Vestibulum sed lacinia sapien. Aenean feugiat fringilla purus. Etiam non arcu ante.',
+        'images/faceGallery.png'),
+  ];
+  @override
   Widget build(BuildContext context) {
-    List<Todo> faceGalleryList = [
-      const Todo(
-          'Test 1',
-          'Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget risus purus. Suspendisse ullamcorper ut felis in tincidunt. Vestibulum finibus hendrerit dui, et tincidunt lectus feugiat non. Etiam eu placerat urna, sed fermentum elit. Sed dapibus nisl eleifend suscipit fringilla. Vestibulum sed lacinia sapien. Aenean feugiat fringilla purus. Etiam non arcu ante.',
-          'images/faceGallery.png'),
-      const Todo(
-          'Test 2',
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget risus purus. Suspendisse ullamcorper ut felis in tincidunt. Vestibulum finibus hendrerit dui, et tincidunt lectus feugiat non. Etiam eu placerat urna, sed fermentum elit. Sed dapibus nisl eleifend suscipit fringilla. Vestibulum sed lacinia sapien. Aenean feugiat fringilla purus. Etiam non arcu ante.',
-          'images/faceGallery.png'),
-      const Todo(
-          'Test 3',
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget risus purus. Suspendisse ullamcorper ut felis in tincidunt. Vestibulum finibus hendrerit dui, et tincidunt lectus feugiat non. Etiam eu placerat urna, sed fermentum elit. Sed dapibus nisl eleifend suscipit fringilla. Vestibulum sed lacinia sapien. Aenean feugiat fringilla purus. Etiam non arcu ante.',
-          'images/faceGallery.png'),
-      const Todo(
-          'Test 4',
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget risus purus. Suspendisse ullamcorper ut felis in tincidunt. Vestibulum finibus hendrerit dui, et tincidunt lectus feugiat non. Etiam eu placerat urna, sed fermentum elit. Sed dapibus nisl eleifend suscipit fringilla. Vestibulum sed lacinia sapien. Aenean feugiat fringilla purus. Etiam non arcu ante.',
-          'images/faceGallery.png'),
-      const Todo(
-          'Test 5',
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget risus purus. Suspendisse ullamcorper ut felis in tincidunt. Vestibulum finibus hendrerit dui, et tincidunt lectus feugiat non. Etiam eu placerat urna, sed fermentum elit. Sed dapibus nisl eleifend suscipit fringilla. Vestibulum sed lacinia sapien. Aenean feugiat fringilla purus. Etiam non arcu ante.',
-          'images/faceGallery.png'),
-    ];
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.only(left: 25, top: 10, right: 25),
@@ -92,6 +104,7 @@ class SettingsPage extends StatelessWidget {
                       children: [
                         InkWell(
                           onTap: () {
+                            testthis();
                             Navigator.of(context).push(
                               MaterialPageRoute(
                                 builder: (BuildContext context) {
@@ -119,6 +132,7 @@ class SettingsPage extends StatelessWidget {
                         ),
                         InkWell(
                           onTap: () {
+                            testthis();
                             Navigator.of(context).push(
                               MaterialPageRoute(
                                 builder: (BuildContext context) {
@@ -146,6 +160,7 @@ class SettingsPage extends StatelessWidget {
                         ),
                         InkWell(
                           onTap: () {
+                            testthis();
                             Navigator.of(context).push(
                               MaterialPageRoute(
                                 builder: (BuildContext context) {
@@ -190,6 +205,7 @@ class SettingsPage extends StatelessWidget {
                       children: [
                         InkWell(
                           onTap: () {
+                            testthis();
                             Navigator.of(context).push(
                               MaterialPageRoute(
                                 builder: (BuildContext context) {
@@ -217,6 +233,7 @@ class SettingsPage extends StatelessWidget {
                         ),
                         InkWell(
                           onTap: () {
+                            testthis();
                             Navigator.of(context).push(
                               MaterialPageRoute(
                                 builder: (BuildContext context) {
@@ -271,8 +288,8 @@ class SettingsPage extends StatelessWidget {
                     return Builder(
                       builder: (BuildContext context) {
                         return InkWell(
-                          onTap: () async {
-                            // ignore: use_build_context_synchronously
+                          onTap: () {
+                            testthis();
                             Navigator.of(context).push(
                               MaterialPageRoute(
                                 builder: (BuildContext context) {

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:mywatchapp/test.dart';
 
 class Notifications extends StatefulWidget {
   const Notifications({super.key});
@@ -24,6 +25,7 @@ class _NotificationsState extends State<Notifications> {
         automaticallyImplyLeading: false,
         leading: IconButton(
           onPressed: () {
+            testthis();
             Navigator.of(context).pop();
           },
           icon: const Icon(Icons.arrow_back_ios),

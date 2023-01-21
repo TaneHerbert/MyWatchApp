@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:mywatchapp/test.dart';
 
 class SetTime extends StatefulWidget {
   const SetTime({super.key});
@@ -34,6 +35,7 @@ class _SetTimeState extends State<SetTime> {
         automaticallyImplyLeading: false,
         leading: IconButton(
           onPressed: () {
+            testthis();
             Navigator.of(context).pop();
           },
           icon: const Icon(Icons.arrow_back_ios),

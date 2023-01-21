@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_blue/flutter_blue.dart';
+
 import 'package:mywatchapp/discover_page.dart';
+
 import 'package:mywatchapp/home_page.dart';
 import 'package:mywatchapp/settings_page.dart';
+import 'package:mywatchapp/test.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -37,16 +40,18 @@ class RootPage extends StatefulWidget {
 
 class _RootPageState extends State<RootPage> {
   int currentPage = 0;
-  List<Widget> pages = [const HomePage(), const DiscoverPage()];
+  List<Widget> pages = [];
   List<String> title = ['', 'Discover'];
 
   @override
   void initState() {
+    pages = [const HomePage(), const DiscoverPage()];
+    test(runFunctionOnStartups);
+    runFunctionOnStartups();
     super.initState();
-    runFunctionOnStartup();
   }
 
-  void runFunctionOnStartup() async {
+  void runFunctionOnStartups() async {
     FlutterBlue flutterBlue = FlutterBlue.instance;
     List<BluetoothDevice> bondedDevices = await flutterBlue.connectedDevices;
 
@@ -55,14 +60,17 @@ class _RootPageState extends State<RootPage> {
         pages = [const HomePage(), const DiscoverPage()];
         title = ['', 'Discover'];
       });
+      Navigator.of(context).popUntil((route) => route.isFirst);
+      return;
     }
 
     for (BluetoothDevice device in bondedDevices) {
-      if (device.name == "Tane") {
+      if (device.name == "HMSoft") {
         setState(() {
           pages = [const SettingsPage(), const DiscoverPage()];
           title = ['My Watch', 'Discover'];
         });
+
         return;
       }
     }
@@ -99,10 +107,8 @@ class _RootPageState extends State<RootPage> {
           )
         ],
         onTap: (int index) async {
-          if (index == 0) {
-            runFunctionOnStartup();
-          }
           setState(() {
+            runFunctionOnStartups();
             currentPage = index;
           });
         },

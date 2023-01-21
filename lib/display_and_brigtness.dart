@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mywatchapp/test.dart';
 
 class DisplayAndBrightness extends StatefulWidget {
   const DisplayAndBrightness({super.key});
@@ -20,6 +21,7 @@ class _DisplayAndBrightnessState extends State<DisplayAndBrightness> {
         automaticallyImplyLeading: false,
         leading: IconButton(
           onPressed: () {
+            testthis();
             Navigator.of(context).pop();
           },
           icon: const Icon(Icons.arrow_back_ios),
@@ -134,6 +136,7 @@ class _DisplayAndBrightnessState extends State<DisplayAndBrightness> {
             const SizedBox(height: 20),
             InkWell(
               onTap: () {
+                testthis();
                 Navigator.of(context).push(
                   MaterialPageRoute(
                     builder: (BuildContext context) {
@@ -204,6 +207,7 @@ class _WakeDurationState extends State<WakeDuration> {
           automaticallyImplyLeading: false,
           leading: IconButton(
             onPressed: () {
+              testthis();
               Navigator.of(context).pop();
             },
             icon: const Icon(Icons.arrow_back_ios),
