@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_blue/flutter_blue.dart';
+import 'package:flutter/cupertino.dart';
 
 import 'package:mywatchapp/connect_to_device.dart';
 import 'package:mywatchapp/test.dart';
@@ -117,7 +118,6 @@ class _ConnectionPageState extends State<ConnectionPage> {
         },
       ),
     ).then((_) {
-      // widget.test();
       testthis();
       Navigator.of(context).pop();
     });
@@ -131,6 +131,29 @@ class _ConnectionPageState extends State<ConnectionPage> {
       title: deviceName(r),
       subtitle: deviceMacAddress(r),
       trailing: deviceSignal(r),
+    );
+  }
+
+  // This shows a CupertinoModalPopup which hosts a CupertinoAlertDialog.
+  void _showAlertDialog(BuildContext context) {
+    showCupertinoModalPopup<void>(
+      context: context,
+      builder: (BuildContext context) => CupertinoAlertDialog(
+        title: const Text('Bluetooth'),
+        content:
+            const Text('Please turn on bluetooth in order to find devices.'),
+        actions: <CupertinoDialogAction>[
+          CupertinoDialogAction(
+            /// This parameter indicates this action is the default,
+            /// and turns the action's text to bold text.
+            isDefaultAction: true,
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            child: const Text('Ok'),
+          ),
+        ],
+      ),
     );
   }
 
@@ -172,7 +195,16 @@ class _ConnectionPageState extends State<ConnectionPage> {
       ),
       /* Search for devices or stop scanning */
       floatingActionButton: FloatingActionButton(
-        onPressed: scan,
+        onPressed: () async {
+          FlutterBlue flutterBlue = FlutterBlue.instance;
+          flutterBlue.isOn.then((isBluetoothOn) {
+            if (isBluetoothOn) {
+              scan();
+            } else {
+              _showAlertDialog(context);
+            }
+          });
+        },
         child: Icon(_isScanning ? Icons.stop : Icons.search),
       ),
     );

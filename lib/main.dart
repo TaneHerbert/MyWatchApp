@@ -133,7 +133,10 @@ class _RootPageState extends State<RootPage> {
         ],
         onTap: (int index) async {
           setState(() {
-            checkForConnectedDevices();
+            if (title[0] != "") {
+              checkForConnectedDevices();
+            }
+
             currentPage = index;
           });
         },

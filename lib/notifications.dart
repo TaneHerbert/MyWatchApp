@@ -216,7 +216,9 @@ class _NotificationsState extends State<Notifications> {
             ),
             const SizedBox(height: 30),
             InkWell(
-              onTap: () {},
+              onTap: () {
+                testthis();
+              },
               child: Container(
                 width: double.infinity,
                 decoration: BoxDecoration(
