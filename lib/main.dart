@@ -51,29 +51,29 @@ class _RootPageState extends State<RootPage> {
     super.initState();
   }
 
-  void runFunctionOnStartups() async {
+  void runFunctionOnStartups() {
     FlutterBlue flutterBlue = FlutterBlue.instance;
-    List<BluetoothDevice> bondedDevices = await flutterBlue.connectedDevices;
-
-    if (bondedDevices.isEmpty) {
-      setState(() {
-        pages = [const HomePage(), const DiscoverPage()];
-        title = ['', 'Discover'];
-      });
-      Navigator.of(context).popUntil((route) => route.isFirst);
-      return;
-    }
-
-    for (BluetoothDevice device in bondedDevices) {
-      if (device.name == "HMSoft") {
+    flutterBlue.connectedDevices.then((bondedDevices) {
+      if (bondedDevices.isEmpty) {
         setState(() {
-          pages = [const SettingsPage(), const DiscoverPage()];
-          title = ['My Watch', 'Discover'];
+          pages = [const HomePage(), const DiscoverPage()];
+          title = ['', 'Discover'];
         });
-
+        Navigator.of(context).popUntil((route) => route.isFirst);
         return;
       }
-    }
+
+      for (BluetoothDevice device in bondedDevices) {
+        if (device.name == "HMSoft") {
+          setState(() {
+            pages = [const SettingsPage(), const DiscoverPage()];
+            title = ['My Watch', 'Discover'];
+          });
+
+          return;
+        }
+      }
+    });
   }
 
   @override

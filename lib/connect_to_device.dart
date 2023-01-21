@@ -53,7 +53,8 @@ class _ConnectPageState extends State<ConnectPage> {
         }
       });
     } catch (e) {
-      print(e);
+      debugPrint('$e');
+      // print(e);
       _showErrorDialog(e.toString());
     } finally {
       setState(() {
