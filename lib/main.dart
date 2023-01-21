@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_blue/flutter_blue.dart';
+import 'package:flutter/cupertino.dart';
 
 import 'package:mywatchapp/discover_page.dart';
-
 import 'package:mywatchapp/home_page.dart';
 import 'package:mywatchapp/settings_page.dart';
 import 'package:mywatchapp/test.dart';
 
 void main() {
+  initializeApp();
+  runApp(const MyApp());
+}
+
+void initializeApp() {
   WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
-      .then((_) {
-    runApp(const MyApp());
-  });
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 }
 
 class MyApp extends StatelessWidget {
@@ -40,18 +42,39 @@ class RootPage extends StatefulWidget {
 
 class _RootPageState extends State<RootPage> {
   int currentPage = 0;
-  List<Widget> pages = [];
+  List<Widget> pages = [const HomePage(), const DiscoverPage()];
   List<String> title = ['', 'Discover'];
 
   @override
   void initState() {
-    pages = [const HomePage(), const DiscoverPage()];
-    test(runFunctionOnStartups);
-    runFunctionOnStartups();
+    test(checkForConnectedDevices);
     super.initState();
   }
 
-  void runFunctionOnStartups() {
+  // This shows a CupertinoModalPopup which hosts a CupertinoAlertDialog.
+  void _showAlertDialog(BuildContext context) {
+    showCupertinoModalPopup<void>(
+      context: context,
+      builder: (BuildContext context) => CupertinoAlertDialog(
+        title: const Text('Lost Connection'),
+        content:
+            const Text('Lost connection with Watch. Please connect again.'),
+        actions: <CupertinoDialogAction>[
+          CupertinoDialogAction(
+            /// This parameter indicates this action is the default,
+            /// and turns the action's text to bold text.
+            isDefaultAction: true,
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            child: const Text('Ok'),
+          ),
+        ],
+      ),
+    );
+  }
+
+  void checkForConnectedDevices() {
     FlutterBlue flutterBlue = FlutterBlue.instance;
     flutterBlue.connectedDevices.then((bondedDevices) {
       if (bondedDevices.isEmpty) {
@@ -59,7 +82,10 @@ class _RootPageState extends State<RootPage> {
           pages = [const HomePage(), const DiscoverPage()];
           title = ['', 'Discover'];
         });
+
         Navigator.of(context).popUntil((route) => route.isFirst);
+        _showAlertDialog(context);
+
         return;
       }
 
@@ -69,7 +95,6 @@ class _RootPageState extends State<RootPage> {
             pages = [const SettingsPage(), const DiscoverPage()];
             title = ['My Watch', 'Discover'];
           });
-
           return;
         }
       }
@@ -108,7 +133,7 @@ class _RootPageState extends State<RootPage> {
         ],
         onTap: (int index) async {
           setState(() {
-            runFunctionOnStartups();
+            checkForConnectedDevices();
             currentPage = index;
           });
         },
