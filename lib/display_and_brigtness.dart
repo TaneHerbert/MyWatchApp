@@ -199,6 +199,12 @@ class _WakeDurationState extends State<WakeDuration> {
   int _selectedIndex1 = 0;
 
   @override
+  void initState() {
+    debugPrint("Hello");
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(

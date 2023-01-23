@@ -3,6 +3,9 @@ import 'package:mywatchapp/display_and_brigtness.dart';
 import 'package:mywatchapp/face_gallery_information.dart';
 import 'package:mywatchapp/general_page.dart';
 
+import 'package:flutter_blue/flutter_blue.dart';
+import 'dart:convert';
+
 import 'package:mywatchapp/notifications.dart';
 import 'package:mywatchapp/set_time.dart';
 import 'package:mywatchapp/sound_and_volume.dart';
@@ -103,8 +106,123 @@ class _SettingsPageState extends State<SettingsPage> {
                     child: Column(
                       children: [
                         InkWell(
-                          onTap: () {
+                          onTap: () async {
+                            // FlutterBlue flutterBlue = FlutterBlue.instance;
+                            // List<BluetoothDevice> bondedDevices =
+                            //     await flutterBlue.connectedDevices;
+                            // late BluetoothDevice hmSoftDevice;
+
+                            // // Find device named "HMSoft"
+                            // for (BluetoothDevice device in bondedDevices) {
+                            //   if (device.name == "HMSoft") {
+                            //     hmSoftDevice = device;
+                            //     break;
+                            //   }
+                            // }
+
+                            // List<BluetoothService> services =
+                            //     await hmSoftDevice.discoverServices();
+                            // services.forEach((service) async {
+                            //   // do something with service
+                            //   if (service.uuid.toString() ==
+                            //       "0000ffe0-0000-1000-8000-00805f9b34fb") {
+                            //     var characteristics = service.characteristics;
+                            //     for (BluetoothCharacteristic c
+                            //         in characteristics) {
+                            //       if (c.uuid.toString() ==
+                            //           "0000ffe1-0000-1000-8000-00805f9b34fb") {
+                            //         c.write(utf8.encode('A'));
+                            //         List<int> value = await c.read();
+                            //         List<int> sentance = [];
+
+                            //         while (value.last != 92) {
+                            //           print("test");
+
+                            //           if (value.first == 47) {
+                            //             sentance.addAll(
+                            //                 value.sublist(1, value.length - 1));
+                            //             c.write(utf8.encode('L'));
+                            //             value = await c.read();
+
+                            //             continue;
+                            //           }
+
+                            //           if (value.last == 42) {
+                            //             print(String.fromCharCodes(value));
+                            //             sentance.addAll(
+                            //                 value.sublist(0, value.length - 1));
+
+                            //             c.write(utf8.encode('L'));
+                            //             value = await c.read();
+                            //           }
+                            //         }
+                            //         sentance.addAll(
+                            //             value.sublist(0, value.length - 1));
+                            //         print(String.fromCharCodes(sentance));
+                            //         sentance = [];
+                            //       }
+                            //       return;
+                            //     }
+                            //   }
+                            // });
+
+                            // Get services and characteristics of device "HMSoft"
+
+                            // if (characteristic.uuid.toString() ==
+                            //     '0000ffe1-0000-1000-8000-00805f9b34fb') {
+                            //   characteristic.write(utf8.encode('A'));
+                            //   List<int> value = await characteristic.read();
+                            //   List<int> sentance = [];
+
+                            //   while (value.last != 92) {
+                            //     print("test");
+
+                            //     if (value.first == 47) {
+                            //       sentance.addAll(
+                            //           value.sublist(1, value.length - 1));
+                            //       characteristic.write(utf8.encode('L'));
+                            //       value = await characteristic.read();
+
+                            //       continue;
+                            //     }
+
+                            //     if (value.last == 42) {
+                            //       print(String.fromCharCodes(value));
+                            //       sentance.addAll(
+                            //           value.sublist(0, value.length - 1));
+
+                            //       characteristic.write(utf8.encode('L'));
+                            //       value = await characteristic.read();
+                            //     }
+                            //   }
+                            //   sentance.addAll(
+                            //       value.sublist(0, value.length - 1));
+                            //   print(String.fromCharCodes(sentance));
+                            //   sentance = [];
+                            // }
+                            //   }
+                            // }
+
+                            // List<BluetoothService> services =
+                            //     await hmSoftDevice.discoverServices();
+                            // for (BluetoothService service in services) {
+                            //   for (BluetoothCharacteristic characteristic
+                            //       in service.characteristics) {
+                            //     // Do something with the characteristic
+                            //     List<int> value = await characteristic.read();
+                            //     print(String.fromCharCodes(value));
+                            //   }
+                            // }
+
+                            // var test = services[1].characteristics;
+                            // for (int i = 0; i < test.length; i++) {
+                            //   List<int> value = await test[i].read();
+                            //   // ignore: avoid_print
+                            //   print(String.fromCharCodes(value));
+                            // }
+
                             testthis();
+
                             Navigator.of(context).push(
                               MaterialPageRoute(
                                 builder: (BuildContext context) {

@@ -136,7 +136,6 @@ class _RootPageState extends State<RootPage> {
             if (title[0] != "") {
               checkForConnectedDevices();
             }
-
             currentPage = index;
           });
         },
